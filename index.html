@@ -20,33 +20,46 @@
     <!-- Navigation -->
     <nav class="p-6 max-w-7xl mx-auto flex justify-between items-center">
         <div class="flex items-center space-x-3">
-            <!-- LOGO PICTURE PLACEHOLDER -->
+            <!-- TOP LEFT LOGO -->
             <div class="w-12 h-12 overflow-hidden rounded-lg bg-white flex items-center justify-center border border-gray-100 shadow-sm">
-                <!-- Replace 'https://placehold.co/100x100/0f4c5c/white?text=OP' with your actual logo file URL later -->
-                <img src="https:https://github.com/katrinapope-sys/onpurpose-site/blob/main/LogoImage%20Sep%2016%2C%202025%2C%2008_10_50%20PM.png" alt="OnPurpose Logo" class="w-full h-full object-cover">
+                <!-- ACTION: Ensure your uploaded logo is named 'logo.png' -->
+                <img src="logo.png" alt="OnPurpose Logo" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x100/0f4c5c/white?text=OP'">
             </div>
-            <span class="text-xl font-bold tracking-tight text-brand-primary">OnPurpose <span class="font-light text-gray-600 uppercase text-sm tracking-widest ml-1">Integrative Care</span></span>
+            <div class="flex flex-col">
+                <span class="text-xl font-bold tracking-tight text-brand-primary uppercase leading-none">OnPurpose</span>
+                <span class="font-light text-gray-500 lowercase text-xs tracking-widest">Integrative Care</span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <main class="max-w-7xl mx-auto px-6 py-12 md:py-24 grid md:grid-cols-2 gap-12 items-center">
         <div>
-            <!-- Header Badge -->
+            <!-- Status Badge -->
             <span class="inline-block px-3 py-1 bg-teal-100 text-teal-800 text-xs font-semibold rounded-full mb-4 uppercase tracking-widest">Coming Soon</span>
+            
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 Empowering the Cancer Journey with <span class="text-brand-primary">Intentional Care.</span>
             </h1>
+            
             <p class="text-lg text-gray-600 mb-8 max-w-lg">
-                We are bridging the gap between clinical diagnostics and compassionate oncology support. Bringing mobile laboratory services and other health services directly to the communities that need them most.
+                We are bridging the gap between clinical diagnostics and compassionate oncology support. Bringing mobile laboratory and other oncology services directly to the communities that need them most.
             </p>
             
             <!-- Contact/CTA Box -->
             <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 mb-8">
-                <h3 class="font-semibold text-lg mb-2">Be the first to know when we launch.</h3>
-                <p class="text-sm text-gray-500 mb-4 text-brand-primary">Join our partnership network or inquire about services.</p>
+                <h3 class="font-semibold text-lg mb-2 text-gray-800">Be the first to know when we launch.</h3>
+                <p class="text-sm text-gray-500 mb-2">Join our partnership network or inquire about services.</p>
+                
+                <!-- VIRTUAL ADDRESS SECTION -->
+                <div class="flex items-start text-xs text-brand-primary font-medium mb-6 italic">
+                    <i class="fas fa-map-marker-alt mt-1 mr-2 text-brand-accent"></i>
+                    <!-- ACTION: Replace the text inside the span below with your actual address -->
+                    <span>2120 E Fire Tower Rd Ste 107 #2073 Greenville, NC 27858</span>
+                </div>
+
                 <div class="flex flex-col sm:flex-row gap-3">
-                    <a href="mailto:info@onpurposecare.com" class="inline-flex items-center justify-center px-6 py-3 bg-brand-primary text-white font-semibold rounded-lg hover:bg-opacity-90 transition-all shadow-md">
+                    <a href="mailto:info@onpurposecare.com" class="inline-flex items-center justify-center px-8 py-4 bg-brand-primary text-white font-semibold rounded-xl hover:bg-opacity-90 transition-all shadow-md transform hover:-translate-y-1">
                         Contact Us
                     </a>
                 </div>
@@ -54,32 +67,23 @@
         </div>
 
         <div class="relative">
-            <!-- HERO PICTURE AREA -->
-            <div class="aspect-square bg-gray-200 rounded-3xl overflow-hidden shadow-2xl relative">
-                <!-- High-quality clinical/hero image -->
-                <img src="https://images.unsplash.com/photo-1579152276503-68fe0864783b?q=80&w=1000&auto=format&fit=crop" 
-                     alt="Clinical Phlebotomy" 
-                     class="absolute inset-0 w-full h-full object-cover opacity-90"
-                     onerror="this.src='https://placehold.co/800x800/e2e8f0/64748b?text=OnPurpose+Mobile+Lab'">
-                
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-primary/60 to-transparent"></div>
-                
-                <div class="absolute bottom-8 left-8 text-white">
-                    <h2 class="text-2xl font-semibold mb-1">OnPurpose Mobile Lab Services</h2>
-                    <p class="text-white/80 italic text-sm">"Clinical excellence at your doorstep."</p>
-                </div>
+            <!-- HERO LOGO BOX (REPLACES PREVIOUS TEXT/PHOTO BOX) -->
+            <div class="aspect-square bg-white rounded-3xl overflow-hidden shadow-2xl relative flex items-center justify-center border border-gray-100 p-16">
+                <!-- Large Logo Placement -->
+                <img src="logo.png" alt="OnPurpose Mobile Lab Services" class="w-full h-full object-contain" onerror="this.src='https://placehold.co/800x800/f8fafc/0f4c5c?text=OnPurpose+Mobile+Lab'">
             </div>
-            <!-- Decorative Elements -->
+            
+            <!-- Decorative Accents -->
             <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-brand-accent rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
             <div class="absolute -top-6 -right-6 w-32 h-32 bg-brand-primary rounded-full mix-blend-multiply filter blur-xl opacity-20"></div>
         </div>
     </main>
 
-    <!-- Services Summary -->
+    <!-- Services Pillars -->
     <section class="bg-white py-20 border-t border-gray-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Our Core Pillars</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Core Pillars</h2>
                 <div class="w-20 h-1 bg-brand-accent mx-auto"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
@@ -87,41 +91,42 @@
                 <div class="p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow bg-gray-50">
                     <i class="fas fa-truck-medical text-3xl text-brand-primary mb-6"></i>
                     <h3 class="text-xl font-bold mb-3">Mobile Lab Services</h3>
-                    <p class="text-gray-600 text-sm">Professional specimen collection and health screenings delivered directly to homes and community centers across North Carolina.</p>
+                    <p class="text-gray-600 text-sm">Professional specimen collection and oncology screenings delivered directly to homes and communities across North Carolina.</p>
                 </div>
                 <!-- Oncology Focus -->
-                <div class="p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow bg-white">
+                <div class="p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow bg-white shadow-sm ring-1 ring-gray-100">
                     <i class="fas fa-ribbon text-3xl text-brand-primary mb-6"></i>
                     <h3 class="text-xl font-bold mb-3">Oncology Focus</h3>
-                    <p class="text-gray-600 text-sm">Specialized diagnostic monitoring and follow-up care tailored specifically for those on their cancer recovery journey.</p>
+                    <p class="text-gray-600 text-sm">Specialized diagnostic monitoring tailored specifically for the unique needs of the cancer recovery journey.</p>
                 </div>
                 <!-- Community Health -->
                 <div class="p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow bg-gray-50">
                     <i class="fas fa-users text-3xl text-brand-primary mb-6"></i>
                     <h3 class="text-xl font-bold mb-3">Health Initiative</h3>
-                    <p class="text-gray-600 text-sm">Empowering underserved populations through health education and accessible screening events.</p>
+                    <p class="text-gray-600 text-sm">Empowering underserved populations through health education and mobile screening access in all 100 counties.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Snippet -->
-    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl font-semibold mb-6 italic text-gray-700">"Our mission is to reduce barriers to care and provide diagnostic services with the heart of a neighbor."</h2>
-        <a href="mailto:info@onpurposecare.com" class="text-brand-primary font-bold hover:underline">info@onpurposecare.com</a>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="bg-gray-900 text-gray-400 py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
             <div>
-                <p class="text-white font-bold">OnPurpose Integrative Care</p>
-                <p class="text-xs mt-1">© 2026 All Rights Reserved.</p>
+                <p class="text-white font-bold text-lg mb-1">OnPurpose Integrative Care</p>
+                <p class="text-xs">Empowering the journey with intentionality.</p>
+                <p class="text-[10px] mt-4 opacity-50 uppercase tracking-widest">© 2026 All Rights Reserved.</p>
             </div>
-            <div class="text-center md:text-right">
-                <p class="text-[10px] uppercase tracking-widest mb-2">Legal Entity Information</p>
-                <p class="text-sm">OnPurpose Mobile Lab Services, LLC</p>
-                <p class="text-xs">dba OnPurpose Integrative Care</p>
+            
+            <div class="md:text-right">
+                <p class="text-[10px] uppercase tracking-widest mb-2 text-gray-500 font-semibold">Legal & Location</p>
+                <p class="text-sm text-gray-200 font-medium">OnPurpose Mobile Lab Services, LLC</p>
+                
+                <!-- FOOTER ADDRESS SECTION -->
+                <!-- ACTION: Replace the text below with your actual address -->
+                <p class="text-xs text-gray-400 mt-1">2120 E Fire Tower Rd Ste 107 #2073 Greenville, NC 27858</p>
+                
+                <p class="text-xs italic mt-2 text-gray-500">dba OnPurpose Integrative Care</p>
             </div>
         </div>
     </footer>

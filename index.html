@@ -1,188 +1,212 @@
-import React, { useState } from 'react';
-import { 
-  Droplets,
-  HeartPulse, 
-  ChevronRight, 
-  CheckCircle2, 
-  Activity,
-  UserCheck,
-  Calendar,
-  ArrowUpRight
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnPurpose Integrative Care | Your Health, Your Support, Your Journey OnPurpose</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Brand Colors: #68e4bb (Mint), #FFDE59 (Yellow), #16415f (Navy) */
+        body { font-family: 'Inter', sans-serif; color: #16415f; line-height: 1.6; }
+        .bg-mint { background-color: #68e4bb; }
+        .text-mint { color: #68e4bb; }
+        .bg-navy { background-color: #16415f; }
+        .text-navy { color: #16415f; }
+        .bg-mint-light { background-color: #eafff8; }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #eafff8 0%, transparent 50%);
+        }
+        
+        .roadmap-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .roadmap-card:hover {
+            transform: translateY(-5px);
+        }
 
-const BRAND = {
-  mint: "#68e4bb",
-  yellow: "#FFDE59",
-  navy: "#16415f",
-  mintLight: "#eafff8",
-};
+        .btn-navy {
+            background-color: #16415f;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-navy:hover {
+            background-color: #1e527a;
+            transform: scale(1.02);
+        }
 
-const App = () => {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const logoUrl = "https://raw.githubusercontent.com/katrinapope-sys/onpurpose-site/main/logo.png"; 
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white">
 
-  const services = [
-    { 
-      title: "Your Health", 
-      desc: "Mobile diagnostics and clinical collections that bring high-integrity lab work to your door.", 
-      icon: <Droplets className="w-6 h-6" />,
-      status: "Launching Spring 2026",
-      isPrimary: true
-    },
-    { 
-      title: "OnPurpose Access", 
-      desc: "Community health initiatives and 'Cancer 101' workshops bridging the gap in Eastern NC.", 
-      icon: <Activity className="w-6 h-6" />,
-      status: "In Development",
-      isPrimary: true
-    },
-    { 
-      title: "Your Support", 
-      desc: "Medical social work and care transitions to help navigate complex post-acute journeys.", 
-      icon: <UserCheck className="w-6 h-6" />,
-      status: "Strategic Expansion",
-      isPrimary: false
-    },
-    { 
-      title: "Your Journey", 
-      desc: "Long-term residential support and compassionate recovery environments for oncology patients.", 
-      icon: <HeartPulse className="w-6 h-6" />,
-      status: "Future Vision",
-      isPrimary: false
-    }
-  ];
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail('');
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-white font-sans selection:bg-mintLight" style={{ color: BRAND.navy }}>
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100">
-              <img src={logoUrl} alt="Logo" className="w-full h-full object-contain p-1" />
-            </div>
-            <span className="text-xl font-bold tracking-tight" style={{ color: BRAND.navy }}>
-              OnPurpose<span style={{ color: BRAND.mint }} className="font-extrabold italic text-2xl ml-1">Integrative</span> Care
-            </span>
-          </div>
-          <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-500">
-            <a href="#mission" className="hover:text-emerald-400 transition-colors">Mission</a>
-            <a href="#services" className="hover:text-emerald-400 transition-colors">Roadmap</a>
-            <a href="mailto:info@onpurposecare.com" style={{ color: BRAND.mint }} className="font-bold border-b-2 border-transparent hover:border-current transition-all">Contact Us</a>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <header className="relative pt-20 pb-24 md:pt-32 md:pb-40 px-6 text-center overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-[#eafff8] to-transparent -z-10 blur-3xl opacity-50"></div>
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-8 border tracking-wide uppercase shadow-sm bg-white" style={{ color: BRAND.navy, borderColor: BRAND.mint }}>
-            <span className="flex h-2 w-2 rounded-full animate-pulse" style={{ backgroundColor: BRAND.yellow }}></span>
-            Building the Future of Rural Health Equity
-          </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4" style={{ color: BRAND.navy }}>
-            Clinical Precision.<br />
-            <span style={{ color: BRAND.mint }}>Patient-Centered.</span>
-          </h1>
-          <p className="text-2xl md:text-3xl font-bold italic mb-10 opacity-90" style={{ color: BRAND.navy }}>
-            Your Health, Your Support, Your Journey OnPurpose.
-          </p>
-          <div className="max-w-md mx-auto">
-            {!submitted ? (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                <input 
-                  type="email" 
-                  placeholder="Join our waiting list" 
-                  className="flex-grow px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 transition-all" 
-                  style={{ ringColor: BRAND.mintLight }} 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)} 
-                  required 
-                />
-                <button className="text-white px-8 py-4 rounded-2xl font-bold shadow-xl flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 transition-transform" style={{ backgroundColor: BRAND.navy }}>
-                  Stay Updated <ChevronRight className="w-4 h-4" />
-                </button>
-              </form>
-            ) : (
-              <div className="bg-green-50 text-green-700 p-6 rounded-2xl border border-green-100 font-semibold flex items-center justify-center gap-3 animate-in fade-in zoom-in duration-300">
-                <CheckCircle2 className="w-5 h-5 text-green-500" /> We'll notify you as we near launch.
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
-
-      {/* Services Roadmap Section */}
-      <section id="services" className="py-24 px-6 bg-slate-50/50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-3xl font-extrabold mb-4" style={{ color: BRAND.navy }}>Our Service Roadmap</h2>
-            <p className="text-slate-500 max-w-2xl">We are launching in phases to ensure the highest standards of integrity and clinical precision for every neighbor we serve.</p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((s, i) => (
-              <div key={i} className={`relative bg-white p-8 rounded-[2rem] border transition-all duration-300 ${s.isPrimary ? 'border-slate-100 shadow-md hover:shadow-xl' : 'border-slate-50 opacity-80 grayscale-[0.5] hover:grayscale-0'}`}>
-                <div className="flex justify-between items-start mb-8">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ backgroundColor: s.isPrimary ? BRAND.mintLight : '#f1f5f9', color: s.isPrimary ? BRAND.mint : '#94a3b8' }}>
-                    {s.icon}
-                  </div>
-                  <span className={`text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider ${s.isPrimary ? 'bg-yellow-100 text-yellow-700' : 'bg-slate-100 text-slate-500'}`}>
-                    {s.status}
-                  </span>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100">
+                    <img src="https://raw.githubusercontent.com/katrinapope-sys/onpurpose-site/main/logo.png" 
+                         alt="OnPurpose Logo" 
+                         class="w-full h-full object-contain p-1"
+                         onerror="this.parentElement.innerHTML='<div class=\'text-mint font-bold text-xl\'>OP</div>'">
                 </div>
-                <h3 className="text-xl font-bold mb-4" style={{ color: BRAND.navy }}>{s.title}</h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6">{s.desc}</p>
-                {s.isPrimary && (
-                  <div className="flex items-center gap-1 text-xs font-bold" style={{ color: BRAND.mint }}>
-                    Phase 1 Priority <ArrowUpRight className="w-3 h-3" />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                <span class="text-xl font-bold tracking-tight text-navy">
+                    OnPurpose <span class="text-mint italic font-extrabold">Integrative</span> Care
+                </span>
+            </div>
+            
+            <div class="hidden md:flex gap-8 text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                <a href="#mission" class="hover:text-mint transition-colors">Mission</a>
+                <a href="#roadmap" class="hover:text-mint transition-colors">Roadmap</a>
+                <a href="mailto:info@onpurposecare.com" class="text-mint font-bold border-b-2 border-transparent hover:border-mint transition-all">Contact Us</a>
+            </div>
         </div>
-      </section>
+    </nav>
 
-      {/* Mission Hook */}
-      <section id="mission" className="py-24 px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-mint font-black uppercase tracking-widest text-xs mb-6">Our Core Conviction</h2>
-        <p className="text-2xl md:text-3xl font-medium leading-relaxed text-slate-700">
-          "To humanize the diagnostic experience by providing seamless, high-integrity care that prioritizes <span className="text-navy font-bold italic underline decoration-mint decoration-4 underline-offset-4">health equity</span> for all."
-        </p>
-      </section>
+    <!-- Hero Section -->
+    <header class="relative pt-20 pb-24 md:pt-32 md:pb-40 px-6 hero-gradient overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-8 border border-mint tracking-wide uppercase shadow-sm bg-white">
+                <span class="flex h-2 w-2 rounded-full bg-[#FFDE59] animate-pulse"></span>
+                Building the Future of Rural Health Equity
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-navy">
+                Clinical Precision.<br />
+                <span class="text-mint">Patient-Centered.</span>
+            </h1>
 
-      {/* Footer */}
-      <footer className="py-20 px-6 border-t border-slate-100 text-center bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col items-center gap-6">
-          <div className="flex items-center gap-3">
-             <img src={logoUrl} alt="Logo" className="w-8 h-8 object-contain" />
-             <span className="text-lg font-bold italic" style={{ color: BRAND.navy }}>OnPurpose Integrative Care</span>
-          </div>
-          
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-[11px] uppercase tracking-[0.2em] font-bold" style={{ color: BRAND.mint }}>Your Health, Your Support, Your Journey OnPurpose</p>
-            <p className="text-[10px] text-slate-500 font-medium">OnPurpose Mobile Lab Services, LLC.</p>
-            <p className="text-[9px] text-slate-400 italic">Doing Business As: OnPurpose Integrative Care</p>
-          </div>
+            <p class="text-2xl md:text-3xl font-bold italic mb-10 text-navy/90">
+                Your Health. Your Support. Your Journey OnPurpose.
+            </p>
+            
+            <p class="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed max-w-2xl mx-auto">
+                Providing high-integrity mobile diagnostics and compassionate care transitions throughout Eastern North Carolina.
+            </p>
 
-          <div className="w-16 h-px bg-slate-100 my-4"></div>
-
-          <p className="text-[10px] text-slate-400 uppercase tracking-widest">&copy; 2026 OnPurpose Mobile Lab Services, LLC. All Rights Reserved.</p>
+            <div class="max-w-md mx-auto">
+                <form id="signupForm" class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Join our Spring 2026 waiting list" class="flex-grow px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#eafff8] shadow-sm transition-all" required>
+                    <button type="submit" class="btn-navy px-8 py-4 rounded-2xl font-bold shadow-xl flex items-center justify-center gap-2 group whitespace-nowrap">
+                        Stay Updated
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </form>
+                <div id="successMessage" class="hidden bg-green-50 text-green-700 p-6 rounded-2xl border border-green-100 font-semibold text-center flex items-center justify-center gap-3">
+                    <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    We'll notify you as we near launch.
+                </div>
+            </div>
         </div>
-      </footer>
-    </div>
-  );
-};
+    </header>
 
-export default App;
+    <!-- Mission Hook -->
+    <section id="mission" class="py-24 px-6 bg-white border-y border-slate-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-mint font-black uppercase tracking-[0.2em] text-xs mb-8">Our Core Conviction</h2>
+            <p class="text-2xl md:text-4xl font-medium leading-[1.4] text-navy">
+                "To humanize the diagnostic experience by providing seamless, <span class="text-mint font-bold italic">high-integrity care</span> that prioritizes health equity for every neighbor we serve."
+            </p>
+        </div>
+    </section>
+
+    <!-- Service Roadmap Section -->
+    <section id="roadmap" class="py-24 px-6 bg-slate-50/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-navy">Our Service Roadmap</h2>
+                <p class="text-slate-500 max-w-2xl">Establishing a foundation of trust through phased clinical excellence across Eastern North Carolina.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Phase 1: Health -->
+                <div class="roadmap-card bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-mint-light flex items-center justify-center text-mint">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.673.337a4 4 0 01-2.506.327l-1.623-.325a2 2 0 00-1.182.159l-1.531.766A2 2 0 003 18.239V21a1 1 0 001 1h6a1 1 0 001-1v-2.111a1 1 0 01.59-.908l.82-.41a1 1 0 01.996.035l1.628.814a1 1 0 001.032-.016l1.378-.918a1 1 0 00.413-.827v-2.111a1 1 0 01.127-.489z"></path></svg>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-700 uppercase tracking-wider">Spring 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Your Health</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">High-integrity mobile diagnostics and specimen collection brought directly to your home.</p>
+                    <div class="text-mint font-bold text-xs uppercase flex items-center gap-1">Phase 1 Priority <span class="text-lg">→</span></div>
+                </div>
+
+                <!-- Phase 2: Access -->
+                <div class="roadmap-card bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm relative opacity-95">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-mint-light flex items-center justify-center text-mint">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 005.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 uppercase tracking-wider">Development</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">OnPurpose Access</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Community health initiatives and specialized workshops bridging the local diagnostic gap.</p>
+                </div>
+
+                <!-- Phase 3: Support -->
+                <div class="roadmap-card bg-white p-8 rounded-[2rem] border border-slate-50 shadow-sm opacity-80 grayscale-[0.3]">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 uppercase tracking-wider">Expansion</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Your Support</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Medical social work and specialized care transitions for complex patient journeys.</p>
+                </div>
+
+                <!-- Phase 4: Journey -->
+                <div class="roadmap-card bg-white p-8 rounded-[2rem] border border-slate-50 shadow-sm opacity-80 grayscale-[0.3]">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        </div>
+                        <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 uppercase tracking-wider">Future Vision</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-navy">Your Journey</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">Compassionate residential support and recovery environments for oncology patients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-slate-100 text-center bg-white">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-8">
+            <div class="flex flex-col items-center gap-2">
+                <span class="text-xl font-bold italic text-navy">OnPurpose Integrative Care</span>
+                <p class="text-[11px] uppercase tracking-[0.25em] font-bold text-mint">Your Health, Your Support, Your Journey OnPurpose</p>
+            </div>
+            
+            <div class="flex flex-col items-center gap-1.5 border-y border-slate-50 py-6 w-full max-w-sm">
+                <p class="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">OnPurpose Mobile Lab Services, LLC.</p>
+                <p class="text-[10px] text-slate-400 italic font-medium">Doing Business As: OnPurpose Integrative Care</p>
+            </div>
+
+            <p class="text-[10px] text-slate-400 uppercase tracking-[0.2em]">&copy; 2026 OnPurpose Mobile Lab Services, LLC. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const input = this.querySelector('input');
+            
+            btn.innerHTML = 'Sending...';
+            btn.disabled = true;
+
+            // Simple simulation of successful submission
+            setTimeout(() => {
+                this.style.display = 'none';
+                document.getElementById('successMessage').classList.remove('hidden');
+            }, 800);
+        });
+    </script>
+</body>
+</html>

@@ -1,229 +1,1932 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnPurpose Integrative Care | Your Health, Your Support, Your Journey OnPurpose</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* Applied Brand Hex Codes: #68e4bb (Mint), #FFDE59 (Yellow), #16415f (Navy) */
-        body { font-family: 'Inter', sans-serif; color: #16415f; }
-        
-        .bg-mint { background-color: #68e4bb; }
-        .text-mint { color: #68e4bb; }
-        .border-mint { border-color: #68e4bb; }
-        
-        .bg-navy { background-color: #16415f; }
-        .text-navy { color: #16415f; }
-        
-        .bg-yellow { background-color: #FFDE59; }
-        .text-yellow { color: #FFDE59; }
-        
-        .bg-mint-light { background-color: #eafff8; }
-        
-        .hero-gradient {
-            background: radial-gradient(circle at top right, #eafff8 0%, transparent 40%);
-        }
-        
-        html { scroll-behavior: smooth; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnPurpose Integrative Care | Born from experience. Built OnPurpose.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A3A6B;
+    --navy-dark: #0F2347;
+    --navy-mid: #2A4E89;
+    --teal: #18B8AD;
+    --teal-light: #D4F5F2;
+    --teal-dark: #0E8A82;
+    --gold: #F5B800;
+    --gold-light: #FFF3C4;
+    --gold-dark: #C99500;
+    --white: #FFFFFF;
+    --off-white: #F7F9FC;
+    --gray-100: #EEF1F6;
+    --gray-200: #D8DDE8;
+    --gray-500: #7A869A;
+    --gray-700: #3D4A5C;
+    --text-dark: #12243A;
+    --text-body: #3D4A5C;
+    --text-muted: #6B7A90;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Nunito Sans', system-ui, sans-serif;
+    --shadow-sm: 0 2px 8px rgba(26,58,107,0.08);
+    --shadow-md: 0 6px 24px rgba(26,58,107,0.12);
+    --shadow-lg: 0 16px 48px rgba(26,58,107,0.16);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --transition: 0.25s ease;
+  }
 
-        @keyframes ping {
-            0% { transform: scale(1); opacity: 1; }
-            75%, 100% { transform: scale(2); opacity: 0; }
-        }
-        .animate-custom-ping {
-            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .btn-navy {
-            background-color: #16415f;
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .btn-navy:hover {
-            background-color: #1e527a;
-            transform: translateY(-1px);
-        }
+  body {
+    font-family: var(--font-body);
+    color: var(--text-body);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-        .roadmap-card {
-            transition: all 0.3s ease;
-        }
-        .roadmap-card:hover {
-            transform: translateY(-5px);
-        }
-    </style>
+  /* ─── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 72px;
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; cursor: pointer;
+  }
+
+  .nav-logo-mark {
+    width: 48px; height: 48px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .nav-logo-mark img {
+    width: 48px; height: 48px; object-fit: contain;
+  }
+
+  .nav-logo-text { line-height: 1.1; }
+  .nav-logo-text .brand { font-family: var(--font-display); font-size: 1.1rem; color: var(--navy); font-weight: 700; }
+  .nav-logo-text .sub { font-size: 0.68rem; color: var(--teal-dark); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links li a, .nav-links li button {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--font-body); font-size: 0.88rem; font-weight: 600;
+    color: var(--gray-700); text-decoration: none;
+    padding: 0.5rem 0.85rem; border-radius: var(--radius-sm);
+    letter-spacing: 0.02em; text-transform: uppercase;
+    transition: color var(--transition), background var(--transition);
+  }
+
+  .nav-links li a:hover, .nav-links li button:hover { color: var(--navy); background: var(--gray-100); }
+  .nav-links li a.active, .nav-links li button.active { color: var(--teal-dark); background: var(--teal-light); }
+
+  .nav-cta {
+    background: var(--navy) !important; color: var(--white) !important;
+    border-radius: var(--radius-sm) !important; padding: 0.5rem 1.1rem !important;
+  }
+  .nav-cta:hover { background: var(--navy-mid) !important; }
+
+  /* ─── PAGES ────────────────────────────────────────── */
+  .page { display: none; padding-top: 72px; }
+  .page.active { display: block; }
+
+  /* ─── HOME HERO ──────────────────────────────────── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, var(--navy-mid) 100%);
+    color: var(--white);
+    min-height: 92vh;
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 85% 50%, rgba(24,184,173,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 10% 80%, rgba(245,184,0,0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+
+  .hero-grid::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto; padding: 5rem 2rem 4rem;
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(24,184,173,0.15); border: 1px solid rgba(24,184,173,0.35);
+    color: var(--teal); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.4rem 0.9rem; border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before { content: '●'; font-size: 0.55rem; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.78);
+    max-width: 480px; line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .hero-slogan {
+    font-family: var(--font-display);
+    font-style: italic; font-size: 1rem;
+    color: rgba(245,184,0,0.85);
+    margin-bottom: 2.25rem;
+    border-left: 3px solid var(--gold);
+    padding-left: 0.85rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 1.75rem; border-radius: var(--radius-sm);
+    font-family: var(--font-body); font-size: 0.88rem; font-weight: 700;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    cursor: pointer; border: 2px solid transparent;
+    text-decoration: none; transition: all var(--transition);
+  }
+
+  .btn-primary {
+    background: var(--teal); color: var(--white); border-color: var(--teal);
+  }
+  .btn-primary:hover { background: var(--teal-dark); border-color: var(--teal-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent; color: var(--white); border-color: rgba(255,255,255,0.4);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); }
+
+  .btn-navy {
+    background: var(--navy); color: var(--white); border-color: var(--navy);
+  }
+  .btn-navy:hover { background: var(--navy-dark); }
+
+  .btn-teal {
+    background: var(--teal); color: var(--white); border-color: var(--teal);
+  }
+  .btn-teal:hover { background: var(--teal-dark); transform: translateY(-1px); }
+
+  .btn-gold {
+    background: var(--gold); color: var(--navy-dark); border-color: var(--gold);
+  }
+  .btn-gold:hover { background: var(--gold-dark); }
+
+  /* Hero right: shield card */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  .hero-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    backdrop-filter: blur(8px);
+    width: 100%; max-width: 380px;
+  }
+
+  .hero-stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 1.8rem; font-weight: 700; color: var(--white);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.72rem; color: rgba(255,255,255,0.6);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+
+  .hero-entity-list { list-style: none; }
+
+  .hero-entity-list li {
+    display: flex; align-items: center; gap: 0.65rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.84rem; color: rgba(255,255,255,0.8);
+  }
+
+  .hero-entity-list li:last-child { border-bottom: none; }
+
+  .entity-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ─── SECTIONS ────────────────────────────────────── */
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--teal-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    color: var(--navy); font-weight: 700; line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--teal-dark); }
+
+  .section-sub {
+    font-size: 1.05rem; color: var(--text-muted);
+    max-width: 600px; line-height: 1.7;
+  }
+
+  .section-header { margin-bottom: 3.5rem; }
+
+  /* ─── MISSION BAND ───────────────────────────────── */
+  .mission-band {
+    background: var(--navy);
+    color: var(--white);
+    padding: 4.5rem 2rem;
+  }
+
+  .mission-inner {
+    max-width: 900px; margin: 0 auto; text-align: center;
+  }
+
+  .mission-inner blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-style: italic; line-height: 1.6;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-inner blockquote span { color: var(--teal); }
+
+  .mission-attr {
+    font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(245,184,0,0.8); font-weight: 700;
+  }
+
+  /* ─── SERVICE CARDS ──────────────────────────────── */
+  .services-bg { background: var(--off-white); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: all var(--transition);
+    position: relative; overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--teal);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform var(--transition);
+  }
+
+  .service-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.25rem; font-size: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem; color: var(--navy); margin-bottom: 0.6rem; font-weight: 600;
+  }
+
+  .service-card p {
+    font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
+  }
+
+  .service-tag {
+    display: inline-block; margin-top: 1rem;
+    background: var(--teal-light); color: var(--teal-dark);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  /* ─── VALUES STRIP ──────────────────────────────── */
+  .values-strip {
+    background: var(--navy-dark);
+    padding: 3.5rem 2rem;
+  }
+
+  .values-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-item { text-align: center; }
+
+  .value-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem; font-weight: 700; color: var(--teal);
+    line-height: 1;
+  }
+
+  .value-label {
+    font-size: 0.78rem; color: rgba(255,255,255,0.65);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 0.4rem;
+  }
+
+  /* ─── APPROACH SECTION ──────────────────────────── */
+  .approach-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+  }
+
+  .approach-text .section-eyebrow { margin-bottom: 0.6rem; }
+
+  .approach-list {
+    list-style: none; margin-top: 2rem;
+  }
+
+  .approach-list li {
+    display: flex; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .approach-list li:last-child { border-bottom: none; }
+
+  .approach-num {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--navy); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem; font-weight: 700; flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .approach-list li h4 { font-size: 0.95rem; color: var(--navy); font-weight: 700; margin-bottom: 0.2rem; }
+  .approach-list li p { font-size: 0.88rem; color: var(--text-muted); }
+
+  .approach-visual {
+    background: linear-gradient(145deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    color: var(--white);
+    position: relative; overflow: hidden;
+  }
+
+  .approach-visual::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 40px solid rgba(24,184,173,0.1);
+    top: -80px; right: -80px;
+  }
+
+  .approach-visual-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem; font-style: italic;
+    margin-bottom: 0.5rem; color: var(--teal);
+  }
+
+  .approach-visual-body {
+    font-size: 0.9rem; color: rgba(255,255,255,0.78);
+    line-height: 1.7; margin-bottom: 2rem;
+  }
+
+  .philosophy-pillars {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;
+  }
+
+  .pillar {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem;
+    font-size: 0.82rem; color: rgba(255,255,255,0.85);
+    font-weight: 600;
+  }
+
+  .pillar-icon { font-size: 1rem; margin-bottom: 0.35rem; display: block; }
+
+  /* ─── SERVICES PAGE ─────────────────────────────── */
+  .services-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 5rem 2rem 3rem;
+    text-align: center; color: var(--white);
+  }
+
+  .services-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; margin-bottom: 0.75rem;
+  }
+
+  .services-hero p {
+    font-size: 1.05rem; color: rgba(255,255,255,0.75);
+    max-width: 580px; margin: 0 auto;
+  }
+
+  .services-detail-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-detail-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition);
+  }
+
+  .service-detail-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+  .service-detail-header {
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .service-detail-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem; color: var(--navy); font-weight: 600;
+    margin-top: 0.75rem; margin-bottom: 0.5rem;
+  }
+
+  .service-detail-header p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  .service-detail-body { padding: 1.5rem 2rem; }
+
+  .service-features { list-style: none; }
+
+  .service-features li {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    padding: 0.4rem 0; font-size: 0.88rem; color: var(--text-body);
+  }
+
+  .service-features li::before {
+    content: '✦'; color: var(--teal); font-size: 0.6rem;
+    margin-top: 0.35rem; flex-shrink: 0;
+  }
+
+  /* ─── FOODAURA PAGE ─────────────────────────────── */
+  .fa-hero {
+    background: linear-gradient(135deg, #0A2540 0%, #0D3D4F 40%, #0A4A3A 100%);
+    padding: 5rem 2rem 0;
+    overflow: hidden; position: relative;
+    color: var(--white);
+  }
+
+  .fa-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 80% 40%, rgba(24,184,173,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse 30% 50% at 15% 70%, rgba(245,184,0,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .fa-hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+    padding-bottom: 4rem;
+    position: relative; z-index: 1;
+  }
+
+  .fa-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,184,0,0.15); border: 1px solid rgba(245,184,0,0.35);
+    color: var(--gold); font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 0.9rem; border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .fa-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 700; line-height: 1.05;
+    margin-bottom: 0.5rem;
+  }
+
+  .fa-logo-text {
+    color: var(--teal); font-style: italic;
+  }
+
+  .fa-tagline {
+    font-size: 1rem; color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem; line-height: 1.7;
+    max-width: 460px;
+  }
+
+  .fa-phone-mockup {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px;
+    padding: 1.5rem;
+    max-width: 280px; margin: 0 auto;
+  }
+
+  .fa-phone-screen {
+    background: linear-gradient(180deg, #0D3D4F 0%, #0A2540 100%);
+    border-radius: 18px;
+    padding: 1.5rem 1.2rem;
+    min-height: 340px;
+  }
+
+  .fa-phone-header {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .fa-phone-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+
+  .fa-meal-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(24,184,173,0.3);
+    border-radius: 12px;
+    padding: 0.85rem; margin-bottom: 0.75rem;
+  }
+
+  .fa-meal-name { font-size: 0.8rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+  .fa-meal-info { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
+
+  .fa-score-bar {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .fa-score-label { font-size: 0.65rem; color: var(--teal); font-weight: 700; text-transform: uppercase; }
+  .fa-score-track {
+    flex: 1; height: 4px; background: rgba(255,255,255,0.15); border-radius: 100px; overflow: hidden;
+  }
+  .fa-score-fill { height: 100%; background: var(--teal); border-radius: 100px; }
+
+  /* FoodAura signup section */
+  .fa-section { padding: 5rem 2rem; }
+  .fa-section.light { background: var(--off-white); }
+
+  .fa-about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: center;
+  }
+
+  .fa-feature-list { list-style: none; margin-top: 1.5rem; }
+
+  .fa-feature-list li {
+    display: flex; gap: 0.85rem; align-items: flex-start;
+    padding: 0.75rem 0; border-bottom: 1px solid var(--gray-100);
+  }
+
+  .fa-feature-list li:last-child { border-bottom: none; }
+
+  .fa-feature-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--teal-light); color: var(--teal-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+
+  .fa-feature-list h4 { font-size: 0.92rem; color: var(--navy); font-weight: 700; margin-bottom: 0.15rem; }
+  .fa-feature-list p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* Signup cards */
+  .signup-section {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 5rem 2rem;
+    color: var(--white);
+  }
+
+  .signup-grid {
+    max-width: 900px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .signup-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+    transition: all var(--transition);
+  }
+
+  .signup-card:hover {
+    background: rgba(255,255,255,0.13);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  }
+
+  .signup-card-icon {
+    width: 64px; height: 64px; border-radius: 50%;
+    margin: 0 auto 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+  }
+
+  .signup-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 700; color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .signup-card p {
+    font-size: 0.88rem; color: rgba(255,255,255,0.7);
+    line-height: 1.65; margin-bottom: 1.75rem;
+  }
+
+  .signup-card .signup-features {
+    list-style: none; text-align: left; margin-bottom: 2rem;
+  }
+
+  .signup-card .signup-features li {
+    font-size: 0.83rem; color: rgba(255,255,255,0.75);
+    padding: 0.35rem 0; display: flex; align-items: center; gap: 0.6rem;
+  }
+
+  .signup-card .signup-features li::before {
+    content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0;
+  }
+
+  .signup-divider {
+    text-align: center; padding: 2.5rem 1rem; grid-column: 1 / -1;
+  }
+
+  .signup-divider .or-text {
+    font-family: var(--font-display);
+    font-size: 2rem; font-style: italic; color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── ABOUT PAGE ────────────────────────────────── */
+  .about-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 5rem 2rem 3rem; text-align: center; color: var(--white);
+  }
+
+  .about-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; margin-bottom: 0.75rem;
+  }
+
+  .about-story {
+    max-width: 760px; margin: 4rem auto;
+    font-size: 1.05rem; line-height: 1.9;
+    color: var(--text-body);
+  }
+
+  .about-story p { margin-bottom: 1.5rem; }
+
+  .about-story h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem; color: var(--navy);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .philosophy-card {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    color: var(--white);
+    margin: 3rem 0;
+  }
+
+  .philosophy-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-style: italic;
+    color: var(--teal); margin-bottom: 1rem;
+  }
+
+  .philosophy-card p {
+    color: rgba(255,255,255,0.8); line-height: 1.8;
+  }
+
+  .timeline {
+    position: relative; padding: 2rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 2px; background: var(--gray-200);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    display: grid; grid-template-columns: 1fr 40px 1fr;
+    gap: 1.5rem; align-items: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-content {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md); padding: 1.5rem;
+  }
+
+  .timeline-content.right { grid-column: 3; }
+  .timeline-content.left { grid-column: 1; }
+
+  .timeline-dot {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--teal); border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; color: var(--white);
+    grid-column: 2; z-index: 1;
+  }
+
+  .timeline-phase {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem; color: var(--navy); font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-content p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ─── CONTACT PAGE ──────────────────────────────── */
+  .contact-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 5rem 2rem 3rem; text-align: center; color: var(--white);
+  }
+
+  .contact-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 0.75rem;
+  }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .contact-info h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem; color: var(--navy); margin-bottom: 1.25rem;
+  }
+
+  .contact-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid var(--gray-100);
+  }
+
+  .contact-item:last-child { border-bottom: none; }
+
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--teal-light); color: var(--teal-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.2rem;
+  }
+
+  .contact-value { font-size: 0.93rem; color: var(--text-dark); font-weight: 600; }
+
+  .contact-form-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg); padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .contact-form-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem; color: var(--navy); margin-bottom: 1.5rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block; font-size: 0.8rem; font-weight: 700;
+    color: var(--gray-700); margin-bottom: 0.4rem;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.75rem 1rem;
+    border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+    font-family: var(--font-body); font-size: 0.92rem; color: var(--text-dark);
+    background: var(--white);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+  }
+
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--teal); box-shadow: 0 0 0 3px rgba(24,184,173,0.15);
+  }
+
+  .form-group textarea { min-height: 100px; resize: vertical; }
+
+  /* ─── FOOTER ─────────────────────────────────────── */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.7);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-brand .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem; color: var(--white); font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-brand .brand-sub {
+    font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 1rem;
+  }
+
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 280px; }
+
+  .footer-slogan {
+    font-family: var(--font-display);
+    font-style: italic; color: var(--gold);
+    font-size: 0.88rem; margin-top: 1rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.73rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--white); margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li { margin-bottom: 0.6rem; }
+
+  .footer-col ul li a, .footer-col ul li button {
+    background: none; border: none; cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none;
+    transition: color var(--transition); padding: 0;
+  }
+
+  .footer-col ul li a:hover, .footer-col ul li button:hover { color: var(--teal); }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 1.5rem auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.78rem;
+  }
+
+  .footer-bottom p { color: rgba(255,255,255,0.4); }
+  .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--teal); }
+
+  /* ─── CTA BAND ───────────────────────────────────── */
+  .cta-band {
+    background: var(--teal);
+    padding: 3.5rem 2rem; text-align: center;
+  }
+
+  .cta-band h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+
+  .cta-band p { color: rgba(255,255,255,0.85); margin-bottom: 1.75rem; }
+
+  /* ─── NOTICE BANNER ────────────────────────────── */
+  .notice-banner {
+    background: var(--gold-light);
+    border: 1px solid var(--gold);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    font-size: 0.85rem; color: var(--navy);
+    margin-bottom: 2rem;
+    display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+
+  .notice-banner strong { color: var(--navy-dark); }
+
+  /* ─── ANIMATIONS ─────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fadeup {
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  /* ─── RESPONSIVE ─────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero-inner, .approach-grid, .fa-hero-inner, .fa-about-grid,
+    .contact-grid, .signup-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .timeline::before { left: 20px; }
+    .timeline-item { grid-template-columns: 40px 1fr; }
+    .timeline-dot { grid-column: 1; }
+    .timeline-content.right { grid-column: 2; }
+    .timeline-content.left { grid-column: 2; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { gap: 0; }
+    .nav-links li a, .nav-links li button { padding: 0.4rem 0.5rem; font-size: 0.78rem; }
+    section { padding: 3.5rem 1.25rem; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* pills / tags */
+  .pill {
+    display: inline-block; padding: 0.3rem 0.75rem;
+    border-radius: 100px; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  .pill-teal { background: var(--teal-light); color: var(--teal-dark); }
+  .pill-gold { background: var(--gold-light); color: var(--gold-dark); }
+  .pill-navy { background: var(--gray-100); color: var(--navy); }
+
+  .text-teal { color: var(--teal-dark); }
+  .text-gold { color: var(--gold-dark); }
+  .text-navy { color: var(--navy); }
+
+  /* divider */
+  .divider {
+    height: 1px; background: var(--gray-200); margin: 0;
+  }
+
+  hr { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
+</style>
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <!-- Logo Container -->
-                <div class="relative w-12 h-12 flex items-center justify-center overflow-hidden rounded-xl bg-white shadow-sm border border-slate-100">
-                    <img src="https://raw.githubusercontent.com/katrinapope-sys/onpurpose-site/main/logo.png" 
-                         alt="OnPurpose Care" 
-                         class="w-full h-full object-contain p-1"
-                         onerror="this.style.display='none'; document.getElementById('fallback-icon-nav').style.display='block';">
-                    
-                    <svg id="fallback-icon-nav" style="display:none;" class="w-6 h-6 text-mint" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
-                </div>
-                <span class="text-xl font-bold tracking-tight text-navy">
-                    OnPurpose <span class="text-mint font-extrabold italic">Integrative</span> Care
-                </span>
-            </div>
-            
-            <div class="hidden md:flex gap-8 text-sm font-semibold text-slate-500">
-                <a href="#mission" class="hover:text-mint transition-colors">Mission</a>
-                <a href="#roadmap" class="hover:text-mint transition-colors">Roadmap</a>
-                <a href="mailto:info@onpurposecare.com" class="text-mint font-bold hover:opacity-80 transition-opacity">Contact Us</a>
-            </div>
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')" role="button" tabindex="0">
+      <div class="nav-logo-mark"><img src="OPIC_Publication_Logo.png" alt="OnPurpose Integrative Care Logo"></div>
+      <div class="nav-logo-text">
+        <div class="brand">OnPurpose</div>
+        <div class="sub">Integrative Care</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
+      <li><button onclick="showPage('services')" id="nav-services">Services</button></li>
+      <li><button onclick="showPage('foodaura')" id="nav-foodaura">FoodAura</button></li>
+      <li><button onclick="showPage('about')" id="nav-about">About</button></li>
+      <li><button onclick="showPage('contact')" id="nav-contact" class="nav-cta">Contact Us</button></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════ HOME PAGE ═══════════ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">Greenville &amp; Eastern North Carolina</div>
+        <h1>
+          Whole-Person Cancer Care,<br>
+          <em>Delivered with</em><br>
+          <span>Intention.</span>
+        </h1>
+        <p class="hero-sub">
+          An integrated oncology care ecosystem providing compassionate, high-integrity services across your entire care journey — from diagnostics to home, from nutrition to community.
+        </p>
+        <p class="hero-slogan">"Born from experience. Built OnPurpose."</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="showPage('services')">Explore Services</button>
+          <button class="btn btn-outline" onclick="showPage('contact')">Get In Touch</button>
         </div>
-    </nav>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div style="font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(24,184,173,0.85); margin-bottom:1.25rem;">Why OnPurpose Is Different</div>
+          <div style="display:flex; flex-direction:column; gap:0.85rem;">
 
-    <!-- Hero Section -->
-    <header class="relative pt-20 pb-24 md:pt-32 md:pb-40 px-6 hero-gradient">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold mb-8 border border-mint tracking-wide uppercase shadow-sm bg-white">
-                <span class="relative flex h-2 w-2">
-                    <span class="animate-custom-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-yellow"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow"></span>
-                </span>
-                Building for Rural Health Equity
+            <div style="display:flex; gap:1rem; align-items:flex-start; padding:1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-left:3px solid var(--teal); border-radius:0 10px 10px 0;">
+              <span style="font-size:1.3rem; flex-shrink:0; margin-top:2px;">🏠</span>
+              <div>
+                <div style="font-size:0.82rem; font-weight:700; color:var(--white); margin-bottom:0.2rem;">Care comes to you</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5;">Traditional healthcare makes sick people travel. We bring diagnostics and care directly to your door.</div>
+              </div>
             </div>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-[1.1] text-navy">
-                Clinical Precision.<br />
-                <span class="text-mint">Patient-Centered.</span>
-            </h1>
 
-            <p class="text-2xl md:text-3xl font-bold italic mb-10 opacity-90 text-navy">
-                Your Health. Your Support. Your Journey OnPurpose.
-            </p>
-            
-            <p class="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed max-w-2xl mx-auto">
-                Providing high-integrity mobile diagnostics and compassionate care transitions throughout Eastern North Carolina.
-            </p>
-
-            <div class="max-w-md mx-auto">
-                <form id="signupForm" class="flex flex-col sm:flex-row gap-3">
-                    <input type="email" placeholder="Join our waiting list" class="flex-grow px-6 py-4 rounded-2xl border border-slate-200 focus:outline-none focus:ring-4 focus:ring-[#eafff8] shadow-sm transition-all" required>
-                    <button type="submit" class="btn-navy px-8 py-4 rounded-2xl font-bold shadow-xl flex items-center justify-center gap-2 group whitespace-nowrap">
-                        Get Updates
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                </form>
-                <div id="successMessage" class="hidden bg-green-50 text-green-700 p-5 rounded-2xl border border-green-100 font-semibold text-center">
-                    We'll notify you as we near launch.
-                </div>
+            <div style="display:flex; gap:1rem; align-items:flex-start; padding:1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-left:3px solid var(--gold); border-radius:0 10px 10px 0;">
+              <span style="font-size:1.3rem; flex-shrink:0; margin-top:2px;">🧩</span>
+              <div>
+                <div style="font-size:0.82rem; font-weight:700; color:var(--white); margin-bottom:0.2rem;">No more gaps in your journey</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5;">Six coordinated services cover your entire care continuum — nothing falls through the cracks.</div>
+              </div>
             </div>
+
+            <div style="display:flex; gap:1rem; align-items:flex-start; padding:1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-left:3px solid #A78BFA; border-radius:0 10px 10px 0;">
+              <span style="font-size:1.3rem; flex-shrink:0; margin-top:2px;">🤝</span>
+              <div>
+                <div style="font-size:0.82rem; font-weight:700; color:var(--white); margin-bottom:0.2rem;">We treat the whole person</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5;">Nutrition, housing, social barriers, and clinical care — addressed together, not in isolation.</div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:1rem; align-items:flex-start; padding:1rem; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-left:3px solid #34D399; border-radius:0 10px 10px 0;">
+              <span style="font-size:1.3rem; flex-shrink:0; margin-top:2px;">🎯</span>
+              <div>
+                <div style="font-size:0.82rem; font-weight:700; color:var(--white); margin-bottom:0.2rem;">Every decision is intentional</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.6); line-height:1.5;">Our Intentional Standard of Care means nothing here is accidental — every protocol is chosen on purpose.</div>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <!-- Mission Section -->
-    <section id="mission" class="bg-slate-50 py-24 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="bg-white rounded-[2rem] p-10 md:p-20 shadow-xl border border-slate-100 relative overflow-hidden">
-                <div class="relative z-10 text-center md:text-left">
-                    <h2 class="text-mint font-black uppercase tracking-widest text-sm mb-6 flex items-center justify-center md:justify-start gap-2">
-                        <div class="h-px w-8 bg-mint"></div>
-                        Our Mission
-                    </h2>
-                    <p class="text-2xl md:text-4xl font-medium leading-[1.4] text-navy">
-                        "To humanize the diagnostic experience by providing seamless, <span class="text-mint font-bold">high-integrity care</span> that prioritizes patient comfort and health equity."
-                    </p>
-                </div>
-            </div>
+  <!-- Mission Band -->
+  <div class="mission-band">
+    <div class="mission-inner">
+      <blockquote>
+        "OnPurpose Integrative Care operates at the intersection of <span>clinical excellence</span> and human dignity — eliminating the systemic gaps that cause preventable suffering among oncology patients navigating the post-acute continuum. We do not view care as a transaction. We hold it as a calling."
+      </blockquote>
+      <div class="mission-attr">Our Mission — OnPurpose Integrative Care</div>
+    </div>
+  </div>
+
+  <!-- Services Overview -->
+  <section class="services-bg">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">What We Offer</div>
+        <h2 class="section-title">Six Pillars of <em>Integrated Care</em></h2>
+        <p class="section-sub">Every entity within OnPurpose Integrative Care is designed to work together — eliminating the gaps that leave patients and families without support.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon" style="background:#D4F5F2;">🔬</div>
+          <h3>Mobile Lab Services</h3>
+          <p>High-integrity specimen collection and mobile diagnostics delivered directly to the patient — eliminating the burden of travel for vulnerable individuals.</p>
+          <span class="service-tag">Mobile Diagnostics</span>
         </div>
-    </section>
+        <div class="service-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div class="service-icon" style="background:#EFF6FF;">🏠</div>
+            <span style="background:#FFF3C4; color:#C99500; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.6rem; border-radius:100px; margin-top:0.25rem; white-space:nowrap;">Coming Soon</span>
+          </div>
+          <h3>At-Home Integrative Care</h3>
+          <p>Licensed home care agency providing skilled nursing, CNA support, and oncology-informed care transitions for patients in the comfort of their own homes.</p>
+          <span class="service-tag">At-Home Services</span>
+        </div>
+        <div class="service-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div class="service-icon" style="background:#FFF3C4;">🛡️</div>
+            <span style="background:#FFF3C4; color:#C99500; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.6rem; border-radius:100px; margin-top:0.25rem; white-space:nowrap;">Coming Soon</span>
+          </div>
+          <h3>Family Care Homes</h3>
+          <p>State-licensed residential care homes providing a safe, supportive environment for oncology and medically complex patients who need transitional housing.</p>
+          <span class="service-tag">Residential Care</span>
+        </div>
+        <div class="service-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div class="service-icon" style="background:#F3E8FF;">🤝</div>
+            <span style="background:#FFF3C4; color:#C99500; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.6rem; border-radius:100px; margin-top:0.25rem; white-space:nowrap;">Coming Soon</span>
+          </div>
+          <h3>Care Concierge Protocol</h3>
+          <p>A care coordination service that connects patients to social services, community resources, and care navigators to address barriers to health.</p>
+          <span class="service-tag">Care Coordination</span>
+        </div>
+        <div class="service-card">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div class="service-icon" style="background:#D1FAE5;">🌿</div>
+            <span style="background:#FFF3C4; color:#C99500; font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.25rem 0.6rem; border-radius:100px; margin-top:0.25rem; white-space:nowrap;">Coming Soon</span>
+          </div>
+          <h3>Medicinal Healing Garden</h3>
+          <p>A therapeutic garden providing access to healing plants, mindfulness space, and evidence-informed botanical wellness resources for our patient community.</p>
+          <span class="service-tag">Healing &amp; Wellness</span>
+        </div>
+        <div class="service-card" style="border-color: var(--teal); cursor: pointer;" onclick="showPage('foodaura')">
+          <div class="service-icon" style="background:#D4F5F2;">📱</div>
+          <h3>FoodAura</h3>
+          <p>An AI-powered nutrition application designed specifically for oncology patients and their care teams — translating complex dietary needs into actionable guidance.</p>
+          <span class="service-tag pill-teal" style="background:var(--teal); color:white;">Now Recruiting Beta Testers →</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center md:text-left mb-16">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-navy">Our Service Roadmap</h2>
-            <p class="text-slate-500 max-w-2xl">Phased clinical excellence designed for the long-term health of our community.</p>
+  <!-- Values Strip -->
+  <div class="values-strip">
+    <div class="values-inner">
+      <div class="value-item">
+        <div class="value-num">100%</div>
+        <div class="value-label">Patient-Centered</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">ENC</div>
+        <div class="value-label">Rural Health Focus</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">6</div>
+        <div class="value-label">Integrated Entities</div>
+      </div>
+      <div class="value-item">
+        <div class="value-num">AKS</div>
+          <div class="value-label">Undergoing an AKS Compliant Structure</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intentional Standard of Care -->
+  <section>
+    <div class="container">
+      <div class="approach-grid">
+        <div class="approach-text">
+          <div class="section-eyebrow">Our Philosophy</div>
+          <h2 class="section-title">The Intentional<br><em>Standard of Care</em></h2>
+          <p class="section-sub">Every decision, every interaction, and every care plan at OPIC is grounded in a philosophy that care should never be accidental — it must be deliberate.</p>
+          <ul class="approach-list">
+            <li>
+              <div class="approach-num">01</div>
+              <div>
+                <h4>Dignity First</h4>
+                <p>Every patient interaction preserves dignity and respects the full human experience of illness.</p>
+              </div>
+            </li>
+            <li>
+              <div class="approach-num">02</div>
+              <div>
+                <h4>Seamless Coordination</h4>
+                <p>Our six entities operate in concert — no handoff gaps, no repeat storytelling, no abandonment.</p>
+              </div>
+            </li>
+            <li>
+              <div class="approach-num">03</div>
+              <div>
+                <h4>Health Equity in Practice</h4>
+                <p>Designed for Eastern NC communities who have long been underserved by traditional healthcare systems.</p>
+              </div>
+            </li>
+            <li>
+              <div class="approach-num">04</div>
+              <div>
+                <h4>Evidence-Informed Decisions</h4>
+                <p>Clinical decisions backed by current evidence, including our AI-powered nutrition and care tools.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="approach-visual">
+          <div class="approach-visual-title">Intentional Standard of Care</div>
+          <p class="approach-visual-body">
+            Born from personal experience navigating the healthcare system as a healthcare employee, patient and patient advocate, our Intentional Standard of Care is the operating doctrine that guides every clinical and operational decision within OnPurpose Integrative Care.
+          </p>
+          <div class="philosophy-pillars">
+            <div class="pillar"><span class="pillar-icon">🎯</span>Purpose-Driven</div>
+            <div class="pillar"><span class="pillar-icon">💛</span>Compassion-Led</div>
+            <div class="pillar"><span class="pillar-icon">🔗</span>Systems-Thinking</div>
+            <div class="pillar"><span class="pillar-icon">⚖️</span>Equity-Centered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2>Ready to Experience Intentional Care?</h2>
+    <p>Serving patients, families, and care partners across Eastern North Carolina.</p>
+    <button class="btn btn-navy" onclick="showPage('contact')">Connect With Us</button>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ═══════════ SERVICES PAGE ═══════════ -->
+<div id="page-services" class="page">
+
+  <div class="services-hero">
+    <h1>Our Services</h1>
+    <p>Six specialized entities, one integrated mission. Every service is designed to support the full oncology care continuum.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="services-detail-grid">
+
+        <!-- Mobile Lab -->
+        <div class="service-detail-card">
+          <div class="service-detail-header">
+            <div class="service-icon" style="background:#D4F5F2; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">🔬</div>
+            <h3>Mobile Lab Services</h3>
+            <p>High-integrity, patient-centered diagnostics brought directly to the patient's home, facility, or community site — removing the barrier of travel for vulnerable oncology patients.</p>
+          </div>
+          <div class="service-detail-body">
+            <ul class="service-features">
+              <li>Specialty specimen collection at point of care</li>
+              <li>CLIA-waived POC testing capabilities</li>
+              <li>Phlebotomy services for home-bound patients</li>
+              <li>Oncology-informed chain-of-custody protocols</li>
+              <li>Seamless EMR integration and result delivery</li>
+              <li>Mobile draw fee and concierge service tiers</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Phase 1 -->
-            <div class="roadmap-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm relative overflow-hidden">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-mint-light flex items-center justify-center text-mint font-bold text-lg">01</div>
-                    <span class="text-[10px] font-bold px-2 py-1 rounded bg-yellow-100 text-yellow-700 uppercase tracking-wider">Spring 2026</span>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-navy">Your Health</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">High-integrity mobile diagnostics and specialty specimen collection brought directly to your door.</p>
+        <!-- At-Home Care -->
+        <div class="service-detail-card">
+          <div class="service-detail-header">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+              <div class="service-icon" style="background:#EFF6FF; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">🏠</div>
+              <span style="background:#FFF3C4; color:#C99500; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.7rem; border-radius:100px; white-space:nowrap;">Coming Soon</span>
             </div>
-
-            <!-- Phase 2 -->
-            <div class="roadmap-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm opacity-95">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-mint-light flex items-center justify-center text-mint font-bold text-lg">02</div>
-                    <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 uppercase tracking-wider">Development</span>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-navy">OnPurpose Access</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Community health initiatives and 'Cancer 101' workshops bridging the diagnostic gap in Eastern NC.</p>
-            </div>
-
-            <!-- Phase 3 -->
-            <div class="roadmap-card bg-white p-8 rounded-3xl border border-slate-100 shadow-sm opacity-80 grayscale-[0.3]">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 font-bold text-lg">03</div>
-                    <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 uppercase tracking-wider">Expansion</span>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-navy">Your Support</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Medical social work and care transitions to help navigate complex post-acute journeys.</p>
-            </div>
-
-            <!-- Phase 4 -->
-            <div class="roadmap-card bg-white p-8 rounded-3xl border border-slate-50 shadow-sm opacity-80 grayscale-[0.3]">
-                <div class="flex justify-between items-start mb-6">
-                    <div class="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 font-bold text-lg">04</div>
-                    <span class="text-[10px] font-bold px-2 py-1 rounded bg-slate-100 text-slate-500 uppercase tracking-wider">Future Vision</span>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-navy">Your Journey</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Long-term residential support and recovery environments for oncology patients.</p>
-            </div>
+            <h3>At-Home Integrative Care</h3>
+            <p>A licensed home care agency offering skilled nursing oversight, personal care, and oncology-informed care coordination for patients receiving treatment or in recovery.</p>
+          </div>
+          <div class="service-detail-body">
+            <ul class="service-features">
+              <li>NC-licensed home care operations</li>
+              <li>Skilled nursing visits and care transitions</li>
+              <li>CNA personal care support</li>
+              <li>Oncology-specific care protocols</li>
+              <li>Care plan coordination with treating physicians</li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-16 px-6 border-t border-slate-100 text-center md:text-left bg-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+        <!-- Family Care Homes -->
+        <div class="service-detail-card">
+          <div class="service-detail-header">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+              <div class="service-icon" style="background:#FFF3C4; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">🛡️</div>
+              <span style="background:#FFF3C4; color:#C99500; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.7rem; border-radius:100px; white-space:nowrap;">Coming Soon</span>
+            </div>
+            <h3>Family Care Homes</h3>
+            <p>State-licensed residential facilities providing a safe, structured, home-like environment for medically complex and oncology patients who need transitional or long-term residential support.</p>
+          </div>
+          <div class="service-detail-body">
+            <ul class="service-features">
+              <li>Licensed under NC G.S. 131D-2</li>
+              <li>Zoning-compliant FCH clustering strategy</li>
+              <li>Oncology and post-acute patient focus</li>
+              <li>24/7 supervised residential care</li>
+              <li>Medicaid and private-pay accommodation</li>
+              <li>Integrated with on-site care team</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Care Concierge -->
+        <div class="service-detail-card">
+          <div class="service-detail-header">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+              <div class="service-icon" style="background:#F3E8FF; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">🤝</div>
+              <span style="background:#FFF3C4; color:#C99500; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.7rem; border-radius:100px; white-space:nowrap;">Coming Soon</span>
+            </div>
+            <h3>Care Concierge Protocol</h3>
+            <p>A coordination service that identifies and addresses the non-clinical barriers standing between patients and optimal health outcomes.</p>
+          </div>
+          <div class="service-detail-body">
+            <ul class="service-features">
+              <li>Care Concierge screening and barrier identification</li>
+              <li>Community resource navigation and referral</li>
+              <li>Transportation coordination support</li>
+              <li>Food security and nutrition access</li>
+              <li>Insurance enrollment assistance</li>
+              <li>Value-based care integration</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Healing Garden -->
+        <div class="service-detail-card">
+          <div class="service-detail-header">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem;">
+              <div class="service-icon" style="background:#D1FAE5; width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">🌿</div>
+              <span style="background:#FFF3C4; color:#C99500; font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.3rem 0.7rem; border-radius:100px; white-space:nowrap;">Coming Soon</span>
+            </div>
+            <h3>Medicinal Healing Garden</h3>
+            <p>A dedicated therapeutic garden space providing access to evidence-informed botanical and horticultural wellness resources as a complement to clinical oncology care.</p>
+          </div>
+          <div class="service-detail-body">
+            <div class="pill pill-navy" style="margin-bottom:1rem;">OPIC Medicinal Garden Campus</div>
+            <ul class="service-features">
+              <li>Medicinal and therapeutic plant cultivation</li>
+              <li>Mindfulness and restorative care space</li>
+              <li>Horticultural therapy programming</li>
+              <li>Integration with nutrition and wellness services</li>
+              <li>Community education and engagement</li>
+              <li>Complementary to FoodAura nutrition guidance</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FoodAura teaser -->
+        <div class="service-detail-card" style="border-color:var(--teal); cursor:pointer;" onclick="showPage('foodaura')">
+          <div class="service-detail-header" style="background:linear-gradient(135deg,#0D3D4F,#0A2540); border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+            <div class="service-icon" style="background:rgba(24,184,173,0.2); width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">📱</div>
+            <h3 style="color:white;">FoodAura</h3>
+            <p style="color:rgba(255,255,255,0.7);">AI-powered nutrition intelligence for oncology patients and their clinicians. Personalized. Evidence-based. Purpose-built.</p>
+          </div>
+          <div class="service-detail-body">
+            <div class="pill" style="background:var(--teal); color:white; margin-bottom:1rem;">Now Accepting Beta Testers</div>
+            <ul class="service-features">
+              <li>AI-driven oncology nutrition guidance</li>
+              <li>Clinician-facing tools and dashboards</li>
+              <li>Patient-facing meal and supplement tracking</li>
+              <li>Integrated with care team workflows</li>
+            </ul>
+            <button class="btn btn-teal" style="margin-top:1rem; width:100%; justify-content:center;" onclick="showPage('foodaura')">Learn More &amp; Sign Up →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Questions About Our Services?</h2>
+    <p>Our team is ready to discuss how OPIC can serve you, your patient, or your organization.</p>
+    <button class="btn btn-navy" onclick="showPage('contact')">Reach Out Today</button>
+  </div>
+
+</div><!-- /page-services -->
+
+<!-- ═══════════ FOODAURA PAGE ═══════════ -->
+<div id="page-foodaura" class="page">
+
+  <!-- FoodAura Hero -->
+  <section class="fa-hero">
+    <div class="fa-hero-inner">
+      <div>
+        <div class="fa-badge">🌿 Beta Program Now Open</div>
+        <h1 class="fa-hero-h1">
+          <span class="fa-logo-text" style="font-family: var(--font-display); font-style: italic; color: var(--teal); font-size: clamp(3.5rem, 6vw, 5rem); display:block; line-height:1;">FoodAura</span>
+        </h1>
+        <p style="font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: var(--gold); margin-bottom: 1rem;">Nutrition Intelligence for the Cancer Journey.</p>
+        <p class="fa-tagline">
+          FoodAura is an AI-powered nutrition application designed specifically for oncology patients and the clinicians who care for them — translating complex nutritional science into personalized, actionable guidance at every stage of treatment.
+        </p>
+        <div style="display:flex; gap: 1rem; flex-wrap: wrap;">
+          <button class="btn btn-teal" onclick="scrollToSignup()">Join the Beta Program</button>
+          <button class="btn btn-outline" onclick="document.getElementById('fa-about').scrollIntoView({behavior:'smooth'})">Learn More</button>
+        </div>
+      </div>
+      <div class="fa-phone-mockup">
+        <div class="fa-phone-screen">
+          <div class="fa-phone-header">
+            <span class="fa-phone-dot" style="background:var(--teal);"></span>
+            <span style="font-size:0.7rem; font-weight:700; color:var(--teal); letter-spacing:0.1em; text-transform:uppercase;">FoodAura</span>
+          </div>
+          <div style="font-size: 0.72rem; color:rgba(255,255,255,0.5); margin-bottom:0.5rem; text-transform:uppercase; letter-spacing:0.1em;">Today's Nutrition Score</div>
+          <div style="display:flex; align-items:flex-end; gap:0.5rem; margin-bottom:1.25rem;">
+            <span style="font-family:var(--font-display); font-size:3rem; color:var(--teal); font-weight:700; line-height:1;">87</span>
+            <span style="font-size:0.75rem; color:rgba(255,255,255,0.5); padding-bottom:0.5rem;">/100</span>
+          </div>
+          <div class="fa-meal-card">
+            <div class="fa-meal-name">Breakfast — Oatmeal + Berries</div>
+            <div class="fa-meal-info">Antioxidants ✦ Anti-inflammatory</div>
+            <div class="fa-score-bar">
+              <span class="fa-score-label">Score</span>
+              <div class="fa-score-track"><div class="fa-score-fill" style="width:92%"></div></div>
+              <span style="font-size:0.65rem; color:var(--teal); font-weight:700;">92</span>
+            </div>
+          </div>
+          <div class="fa-meal-card">
+            <div class="fa-meal-name">Lunch — Salmon + Greens</div>
+            <div class="fa-meal-info">Omega-3 ✦ Protein-rich</div>
+            <div class="fa-score-bar">
+              <span class="fa-score-label">Score</span>
+              <div class="fa-score-track"><div class="fa-score-fill" style="width:88%"></div></div>
+              <span style="font-size:0.65rem; color:var(--teal); font-weight:700;">88</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem; padding: 0.75rem; background:rgba(245,184,0,0.15); border:1px solid rgba(245,184,0,0.3); border-radius:8px;">
+            <div style="font-size:0.68rem; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.2rem;">AI Insight</div>
+            <div style="font-size:0.72rem; color:rgba(255,255,255,0.75); line-height:1.5;">Add leafy greens at dinner to boost folate intake during chemo week.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About FoodAura -->
+  <section id="fa-about" class="fa-section">
+    <div class="container">
+      <div class="fa-about-grid">
+        <div>
+          <div class="section-eyebrow">What is FoodAura?</div>
+          <h2 class="section-title">Nutrition Science Meets <em>Oncology Care</em></h2>
+          <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 1rem;">
+            Nutrition is one of the most evidence-supported yet consistently under-addressed components of oncology care. FoodAura bridges that gap — giving both patients and clinicians an intelligent, accessible tool that turns nutritional best practices into real-world action.
+          </p>
+          <p style="color: var(--text-muted); line-height: 1.8;">
+            Built from clinical insight and lived experience with cancer care, FoodAura is designed to meet patients where they are and support clinicians in delivering better, more holistic care.
+          </p>
+          <ul class="fa-feature-list">
+            <li>
+              <div class="fa-feature-icon">🧠</div>
+              <div>
+                <h4>AI-Powered Personalization</h4>
+                <p>Tailored nutrition guidance based on diagnosis, treatment phase, side effects, and patient preferences.</p>
+              </div>
+            </li>
+            <li>
+              <div class="fa-feature-icon">👨‍⚕️</div>
+              <div>
+                <h4>Clinician Dashboard</h4>
+                <p>Tools for registered dietitians, oncologists, and care coordinators to monitor and guide patient nutrition remotely.</p>
+              </div>
+            </li>
+            <li>
+              <div class="fa-feature-icon">📊</div>
+              <div>
+                <h4>Evidence-Based Scoring</h4>
+                <p>Every food recommendation grounded in oncology nutrition research, not generic dietary databases.</p>
+              </div>
+            </li>
+            <li>
+              <div class="fa-feature-icon">🔗</div>
+              <div>
+                <h4>Integrated Care Workflows</h4>
+                <p>Designed to complement existing care team workflows, not replace the human connection in care delivery.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div style="background: var(--navy); border-radius: var(--radius-lg); padding: 2.5rem; color: white;">
+            <div style="font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--teal); margin-bottom: 1rem;">Who FoodAura is Built For</div>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+              <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1.25rem;">
+                <div style="font-weight: 700; color: var(--gold); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">For Patients</div>
+                <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.65;">
+                  Cancer patients at any stage of their journey who want to understand what they're eating, how it affects their treatment, and what they can do to nourish themselves better — in language they can actually understand.
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 1.25rem;">
+                <div style="font-weight: 700; color: var(--teal); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">For Clinicians</div>
+                <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.65;">
+                  Oncologists, registered dietitians, nurses, and care coordinators who want a better way to track, communicate, and support their patients' nutritional health between visits.
+                </p>
+              </div>
+              <div style="background: rgba(24,184,173,0.15); border: 1px solid rgba(24,184,173,0.3); border-radius: 12px; padding: 1.25rem;">
+                <div style="font-weight: 700; color: var(--teal); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Launching in 2026</div>
+                <p style="font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.65;">
+                  We are currently recruiting patients and clinicians for discovery interviews and beta testing ahead of our 2026 launch. Your feedback shapes the product.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup Section -->
+  <section class="signup-section" id="fa-signup">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem;">Get Involved</div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--white); margin-bottom: 0.75rem;">Join the FoodAura Beta Program</h2>
+        <p style="font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; line-height: 1.7;">
+          We're looking for patients and clinicians who want to help shape the future of oncology nutrition care. Participation is free. Your voice matters.
+        </p>
+      </div>
+
+      <!-- *** REPLACE THE href VALUES BELOW WITH YOUR ACTUAL FORM AND CALENDAR LINKS *** -->
+      <div class="signup-grid">
+
+        <!-- Patient Card -->
+        <div class="signup-card">
+          <div class="signup-card-icon" style="background: rgba(24,184,173,0.15); border: 2px solid rgba(24,184,173,0.3);">🧑‍🤝‍🧑</div>
+          <h3>I'm a Patient or Caregiver</h3>
+          <p>You've lived the experience. Help us build something that actually works for you — from meal planning to treatment-day guidance.</p>
+          <ul class="signup-features">
+            <li>Share your experience in a brief interview</li>
+            <li>Get early access to the FoodAura app</li>
+            <li>Test features before public launch</li>
+            <li>Provide feedback that shapes real design</li>
+            <li>No cost, no obligation</li>
+          </ul>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="PATIENT_FOODAURA_FORM_LINK_HERE" target="_blank" class="btn btn-teal" style="justify-content: center; text-align: center;">
+              Complete Interest Form →
+            </a>
+            <a href="PATIENT_FOODAURA_CALENDAR_LINK_HERE" target="_blank" class="btn btn-outline" style="justify-content: center; text-align: center; border-color: rgba(255,255,255,0.3);">
+              Schedule an Interview →
+            </a>
+          </div>
+        </div>
+
+        <!-- Clinician Card -->
+        <div class="signup-card">
+          <div class="signup-card-icon" style="background: rgba(245,184,0,0.15); border: 2px solid rgba(245,184,0,0.3);">👩‍⚕️</div>
+          <h3>I'm a Clinician</h3>
+          <p>Your clinical expertise will ensure FoodAura meets the real-world standards of oncology care. We need your critical eye at the table.</p>
+          <ul class="signup-features">
+            <li>Discovery interview with our clinical team</li>
+            <li>Review and critique the clinical workflow</li>
+            <li>Early clinician dashboard access</li>
+            <li>Input on evidence base and recommendations</li>
+            <li>CME opportunity available (pending approval)</li>
+          </ul>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="CLINICIAN_FOODAURA_FORM_LINK_HERE" target="_blank" class="btn btn-gold" style="justify-content: center; text-align: center;">
+              Complete Clinician Form →
+            </a>
+            <a href="CLINICIAN_FOODAURA_CALENDAR_LINK_HERE" target="_blank" class="btn btn-outline" style="justify-content: center; text-align: center; border-color: rgba(255,255,255,0.3);">
+              Schedule an Interview →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Note -->
+      <div style="max-width: 700px; margin: 2.5rem auto 0; text-align: center; padding: 1.5rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-md);">
+        <p style="font-size: 0.84rem; color: rgba(255,255,255,0.6); line-height: 1.7;">
+          <strong style="color: rgba(255,255,255,0.85);">Questions about the Beta Program?</strong><br>
+          Email us at <a href="mailto:info@onpurposecare.com" style="color: var(--teal); text-decoration: none;">info@onpurposecare.com</a> with the subject line "FoodAura Beta" and our team will be in touch within 2 business days.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band" style="background: var(--navy);">
+    <h2 style="color: var(--white);">FoodAura is Part of a Larger Mission</h2>
+    <p style="color: rgba(255,255,255,0.7);">Explore all six pillars of OnPurpose Integrative Care.</p>
+    <button class="btn btn-teal" onclick="showPage('services')">See All Services</button>
+  </div>
+
+</div><!-- /page-foodaura -->
+
+<!-- ═══════════ ABOUT PAGE ═══════════ -->
+<div id="page-about" class="page">
+
+  <div class="about-hero">
+    <h1>About OnPurpose Integrative Care</h1>
+    <p style="color:rgba(255,255,255,0.75); max-width:580px; margin:0 auto;">Born from experience. Built with intention. Rooted in Eastern North Carolina.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="about-story">
+
+        <div class="notice-banner">
+          <span>📍</span>
+          <div><strong>Headquartered in Greenville, NC</strong> — Serving Pitt County and the broader Eastern North Carolina region with a focus on rural health equity and oncology care access.</div>
+        </div>
+
+        <h3>Our Story</h3>
+        <p>
+          OnPurpose Integrative Care was not born in a boardroom. It was born in the spaces between — in the hallways of hospitals, on the tables of exam rooms, during repetitive appointments, the exhaustion of side effects and questions regarding pain no one could account for. OnPurpose Integrative Care exists because the healthcare system, even at its best, leaves gaps. And in those gaps, especially for oncology patients in rural Eastern North Carolina, people suffer without cause.
+        </p>
+        <p>
+          Our founder created OnPurpose Integrative Care with a singular conviction: that every person navigating a cancer diagnosis deserves care that is not only clinically sound, but human — coordinated, compassionate, and deliberate at every step.
+        </p>
+
+        <div class="philosophy-card">
+          <h3>The Intentional Standard of Care</h3>
+          <p>
+            The Intentional Standard of Care is OnPurpose Integrative Care's founding operational doctrine. It defines the non-negotiable expectation that every clinical decision, every patient interaction, and every organizational process be carried out with full deliberateness — not habit, not convenience, not protocol alone. Care at OnPurpose must be chosen, not defaulted to. Every action is evaluated against the question: Is this what we would want for ourselves or someone we love?
+          </p>
+        </div>
+
+        <h3>Why Eastern North Carolina</h3>
+        <p>
+          Pitt County and the surrounding Eastern NC region face some of the most persistent health disparities in the state. Cancer incidence and mortality rates in rural ENC outpace state and national averages. Access to specialist oncology care, supportive services, and nutrition guidance is severely limited. Transportation, insurance gaps, and social determinants of health compound these challenges daily.
+        </p>
+        <p>
+          OnPurpose Integrative Care was built for this community — not as a charity, but as a sustainable, high-integrity ecosystem that believes excellent care and rural service are not in conflict.
+        </p>
+
+        <h3>How We're Structured</h3>
+        <p>
+          OnPurpose Integrative Care operates as a multi-entity integrated care ecosystem, with six specialized service areas designed to cover the full oncology care continuum. This structure enables seamless internal referral, value-based care participation, and maximum impact per patient — while maintaining full regulatory compliance across each licensed entity.
+        </p>
+
+      </div>
+
+      <!-- Timeline -->
+      <div style="max-width: 800px; margin: 0 auto; padding-top: 2rem;">
+        <div style="text-align:center; margin-bottom: 2.5rem;">
+          <div class="section-eyebrow">Our Roadmap</div>
+          <h2 class="section-title">Building <em>Phase by Phase</em></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content left">
+              <div class="timeline-phase">Phase 1 — 2026</div>
+              <h4>Mobile Lab + At-Home Care Launch</h4>
+              <p>OnPurpose Mobile Lab and At-Home Care enter operations, serving Pitt County with mobile diagnostics and home-based care services.</p>
+            </div>
+            <div class="timeline-dot">1</div>
+            <div></div>
+          </div>
+          <div class="timeline-item">
+            <div></div>
+            <div class="timeline-dot" style="background: var(--gold);">2</div>
+            <div class="timeline-content right">
+              <div class="timeline-phase">Phase 2 — 2026</div>
+              <h4>FoodAura Public Launch</h4>
+              <p>FoodAura exits beta and launches to patients and care teams across Eastern NC, with integrations into OnPurpose's clinical workflows.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-content left">
+              <div class="timeline-phase">Phase 3 — 2026–2027</div>
+              <h4>FCH Licensing + Care Concierge</h4>
+              <p>First Family Care Home licensed and operational; Care Concierge Protocol deployed across entities to address care barriers and coordination gaps.</p>
+            </div>
+            <div class="timeline-dot" style="background: var(--navy);">3</div>
+            <div></div>
+          </div>
+          <div class="timeline-item">
+            <div></div>
+            <div class="timeline-dot" style="background: var(--teal-dark);">4</div>
+            <div class="timeline-content right">
+              <div class="timeline-phase">Phase 4 — Expansion</div>
+              <h4>Regional Scale</h4>
+              <p>FCH campus expansion, value-based payer contracting, and possible replication of the OnPurpose Integrative Care model in other underserved rural markets.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-band">
+    <h2>Learn More or Partner With Us</h2>
+    <p>We welcome conversations with clinicians, payers, community organizations, and investors who share our mission.</p>
+    <button class="btn btn-navy" onclick="showPage('contact')">Get In Touch</button>
+  </div>
+
+</div><!-- /page-about -->
+
+<!-- ═══════════ CONTACT PAGE ═══════════ -->
+<div id="page-contact" class="page">
+
+  <div class="contact-hero">
+    <h1>Contact Us</h1>
+    <p style="color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto;">Whether you're a patient, family member, clinician, or partner organization — we'd love to hear from you.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
             <div>
-                <div class="flex flex-col items-center md:items-start">
-                    <div class="flex items-center gap-2 mb-1">
-                        <div class="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm border border-slate-100">
-                            <img src="https://raw.githubusercontent.com/katrinapope-sys/onpurpose-site/main/logo.png" 
-                                 alt="OnPurpose Care" 
-                                 class="w-full h-full object-contain p-1"
-                                 onerror="this.style.display='none'; document.getElementById('fallback-icon-footer').style.display='block';">
-                            <svg id="fallback-icon-footer" style="display:none;" class="w-5 h-5 text-mint" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
-                        </div>
-                        <span class="text-lg font-bold italic text-navy">OnPurpose Integrative Care</span>
-                    </div>
-                    <!-- Legal Text Lines -->
-                    <div class="text-xs text-slate-500 mt-1">OnPurpose Mobile Lab Services, LLC.</div>
-                    <div class="text-[10px] text-slate-400 italic">Doing Business As: OnPurpose Integrative Care</div>
-                    <p class="text-[10px] uppercase tracking-widest font-bold text-mint mt-2">Your Health, Your Support, Your Journey OnPurpose</p>
-                </div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Greenville, NC 27834<br><span style="font-weight:400; font-size:0.82rem; color:var(--text-muted);">Pitt County, Eastern North Carolina</span></div>
             </div>
-            <div class="text-center md:text-right">
-                <p class="text-slate-400 text-sm mb-4">Bridging the diagnostic gap in Eastern NC.</p>
-                <p class="text-xs text-slate-400">&copy; 2026 OnPurpose Mobile Lab Services, LLC. All Rights Reserved.</p>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:info@onpurposecare.com" style="color:var(--teal-dark); text-decoration:none;">info@onpurposecare.com</a></div>
             </div>
-        </div>
-    </footer>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <div class="contact-label">Website</div>
+              <div class="contact-value"><a href="https://onpurposecare.com" style="color:var(--teal-dark); text-decoration:none;">onpurposecare.com</a></div>
+            </div>
+          </div>
 
-    <script>
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            this.style.display = 'none';
-            document.getElementById('successMessage').classList.remove('hidden');
-        });
-    </script>
+          <div style="margin-top: 2rem; padding: 1.5rem; background: var(--navy); border-radius: var(--radius-md);">
+            <div style="font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--teal); margin-bottom: 0.5rem;">Interested in FoodAura?</div>
+            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 1rem;">
+              For patient or clinician beta program inquiries, visit the FoodAura page to sign up for interviews or beta access.
+            </p>
+            <button class="btn btn-teal" style="width:100%; justify-content:center;" onclick="showPage('foodaura')">Go to FoodAura →</button>
+          </div>
+        </div>
+
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="First name">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Last name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>I am a…</label>
+            <select>
+              <option value="">Select one</option>
+              <option>Patient or Family Member</option>
+              <option>Physician / Clinician</option>
+              <option>Registered Dietitian</option>
+              <option>Home Care Agency</option>
+              <option>Payer or MCO Representative</option>
+              <option>Community Organization</option>
+              <option>Investor or Funder</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" placeholder="How can we help?">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us more about your inquiry…"></textarea>
+          </div>
+          <button class="btn btn-teal" style="width:100%; justify-content:center;" onclick="handleFormSubmit()">
+            Send Message
+          </button>
+          <p style="font-size: 0.77rem; color: var(--text-muted); margin-top: 0.75rem; text-align: center; line-height: 1.5;">
+            We respond to all inquiries within 2 business days. Your information is never shared or sold.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-contact -->
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">OnPurpose Integrative Care</div>
+      <div class="brand-sub">OnPurpose Mobile Lab Services, LLC</div>
+      <p>An integrated oncology care ecosystem serving patients and families across Eastern North Carolina with high-integrity, compassionate, whole-person care.</p>
+      <div class="footer-slogan">"Born from experience. Built OnPurpose."</div>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><button onclick="showPage('services')">Mobile Lab Services</button></li>
+        <li><button onclick="showPage('services')">At-Home Care</button></li>
+        <li><button onclick="showPage('services')">Family Care Homes</button></li>
+        <li><button onclick="showPage('services')">Care Concierge</button></li>
+        <li><button onclick="showPage('services')">Healing Garden</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>FoodAura</h4>
+      <ul>
+        <li><button onclick="showPage('foodaura')">About FoodAura</button></li>
+        <li><button onclick="showPage('foodaura'); scrollToSignup();">Patient Beta Signup</button></li>
+        <li><button onclick="showPage('foodaura'); scrollToSignup();">Clinician Beta Signup</button></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><button onclick="showPage('about')">About OPIC</button></li>
+        <li><button onclick="showPage('about')">Our Mission</button></li>
+        <li><button onclick="showPage('about')">Roadmap</button></li>
+        <li><button onclick="showPage('contact')">Contact Us</button></li>
+        <li><a href="mailto:info@onpurposecare.com">info@onpurposecare.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 OnPurpose Mobile Lab Services, LLC · OnPurpose Integrative Care · Greenville, NC · All Rights Reserved</p>
+    <p><a href="mailto:info@onpurposecare.com">Privacy Policy</a> &nbsp;·&nbsp; <a href="mailto:info@onpurposecare.com">Terms of Use</a></p>
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button, .nav-links a').forEach(b => b.classList.remove('active'));
+    const page = document.getElementById('page-' + id);
+    if (page) {
+      page.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    const navBtn = document.getElementById('nav-' + id);
+    if (navBtn) navBtn.classList.add('active');
+  }
+
+  function scrollToSignup() {
+    setTimeout(() => {
+      const el = document.getElementById('fa-signup');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+  }
+
+  function handleFormSubmit() {
+    alert('Thank you for reaching out! We will be in touch within 2 business days.\n\nNote: For a live deployment, connect this form to your preferred backend or form service.');
+  }
+
+  // Animate service cards on page load
+  document.querySelectorAll('.service-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease, border-color 0.25s ease';
+    setTimeout(() => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, 100 + i * 80);
+  });
+</script>
 </body>
 </html>

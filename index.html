@@ -65,7 +65,7 @@
 
   .nav-logo {
     display: flex; align-items: center; gap: 10px;
-    text-decoration: none; cursor: pointer;
+    text-decoration: none; cursor: pointer; flex-shrink: 0;
   }
 
   .nav-logo-mark {
@@ -81,6 +81,7 @@
   .nav-logo-text .brand { font-family: var(--font-display); font-size: 1.1rem; color: var(--navy); font-weight: 700; }
   .nav-logo-text .sub { font-size: 0.68rem; color: var(--teal-dark); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
 
+  /* Desktop nav links */
   .nav-links {
     display: flex; align-items: center; gap: 0.25rem;
     list-style: none;
@@ -93,10 +94,83 @@
     padding: 0.5rem 0.85rem; border-radius: var(--radius-sm);
     letter-spacing: 0.02em; text-transform: uppercase;
     transition: color var(--transition), background var(--transition);
+    white-space: nowrap;
   }
 
   .nav-links li a:hover, .nav-links li button:hover { color: var(--navy); background: var(--gray-100); }
   .nav-links li a.active, .nav-links li button.active { color: var(--teal-dark); background: var(--teal-light); }
+
+  /* Hamburger button */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 40px; height: 40px;
+    background: none; border: none; cursor: pointer;
+    border-radius: var(--radius-sm); padding: 6px;
+    transition: background var(--transition);
+  }
+
+  .nav-hamburger:hover { background: var(--gray-100); }
+
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--navy); border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile menu drawer */
+  .nav-mobile {
+    display: none;
+    position: fixed; top: 72px; left: 0; right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-md);
+    z-index: 998;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+  }
+
+  .nav-mobile.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-mobile ul {
+    list-style: none;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .nav-mobile ul li { border-bottom: 1px solid var(--gray-100); }
+  .nav-mobile ul li:last-child { border-bottom: none; margin-top: 0.5rem; }
+
+  .nav-mobile ul li button {
+    width: 100%; background: none; border: none; cursor: pointer;
+    font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+    color: var(--gray-700); text-align: left;
+    padding: 0.9rem 0.75rem; border-radius: var(--radius-sm);
+    letter-spacing: 0.02em; text-transform: uppercase;
+    transition: all var(--transition);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-mobile ul li button:hover { color: var(--navy); background: var(--gray-100); }
+  .nav-mobile ul li button.active { color: var(--teal-dark); background: var(--teal-light); }
+
+  .nav-mobile ul li:last-child button {
+    background: var(--navy); color: var(--white);
+    justify-content: center; margin-top: 0.25rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-mobile ul li:last-child button:hover { background: var(--navy-mid); }
 
   .nav-cta {
     background: var(--navy) !important; color: var(--white) !important;
@@ -1015,12 +1089,53 @@
     .footer-inner { grid-template-columns: 1fr 1fr; }
   }
 
-  @media (max-width: 600px) {
-    .nav-links { gap: 0; }
-    .nav-links li a, .nav-links li button { padding: 0.4rem 0.5rem; font-size: 0.78rem; }
-    section { padding: 3.5rem 1.25rem; }
-    .footer-inner { grid-template-columns: 1fr; }
+  @media (max-width: 768px) {
+    /* Hide desktop nav, show hamburger */
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-mobile { display: block; }
+    .nav-inner { padding: 0 1.25rem; }
+
+    /* Hero adjustments */
+    .hero { min-height: auto; padding-bottom: 2rem; }
+    .hero-inner { padding: 3rem 1.25rem 2.5rem; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+
+    /* Section padding */
+    section { padding: 3rem 1.25rem; }
+
+    /* Services grid */
+    .services-grid { grid-template-columns: 1fr; }
+    .services-detail-grid { grid-template-columns: 1fr; }
+
+    /* Values strip */
+    .values-inner { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+    /* Footer */
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+    /* Forms */
     .form-row { grid-template-columns: 1fr; }
+
+    /* Contact */
+    .contact-form-card { padding: 1.5rem; }
+
+    /* FoodAura phone mockup */
+    .fa-phone-mockup { max-width: 240px; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-inner { height: 64px; }
+    .page { padding-top: 64px; }
+    .nav-mobile { top: 64px; }
+    .nav-logo-text .brand { font-size: 1rem; }
+    .nav-logo-text .sub { display: none; }
+    .values-inner { grid-template-columns: 1fr 1fr; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; justify-content: center; }
+    .signup-grid { grid-template-columns: 1fr; }
+    .philosophy-pillars { grid-template-columns: 1fr 1fr; }
   }
 
   /* pills / tags */
@@ -1058,6 +1173,7 @@
         <div class="sub">Integrative Care</div>
       </div>
     </div>
+    <!-- Desktop nav -->
     <ul class="nav-links">
       <li><button onclick="showPage('home')" id="nav-home" class="active">Home</button></li>
       <li><button onclick="showPage('services')" id="nav-services">Services</button></li>
@@ -1065,8 +1181,25 @@
       <li><button onclick="showPage('about')" id="nav-about">About</button></li>
       <li><button onclick="showPage('contact')" id="nav-contact" class="nav-cta">Contact Us</button></li>
     </ul>
+    <!-- Hamburger button -->
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile nav drawer -->
+<div class="nav-mobile" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+  <ul>
+    <li><button onclick="mobileNav('home')" id="mnav-home" class="active">Home</button></li>
+    <li><button onclick="mobileNav('services')" id="mnav-services">Services</button></li>
+    <li><button onclick="mobileNav('foodaura')" id="mnav-foodaura">FoodAura</button></li>
+    <li><button onclick="mobileNav('about')" id="mnav-about">About</button></li>
+    <li><button onclick="mobileNav('contact')" id="mnav-contact">Contact Us</button></li>
+  </ul>
+</div>
 
 <!-- ═══════════ HOME PAGE ═══════════ -->
 <div id="page-home" class="page active">
@@ -1599,7 +1732,7 @@
             <li>No cost, no obligation</li>
           </ul>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="foodaura-patient-form.html" target="_blank" class="btn btn-teal" style="justify-content: center; text-align: center;">
+            <a href="foodaura-patient-form.html" class="btn btn-teal" style="justify-content: center; text-align: center;">
               Complete Interest Form →
             </a>
             <a href="https://calendar.app.google/HiAexJPkoWv3T22Y8" target="_blank" class="btn btn-outline" style="justify-content: center; text-align: center; border-color: rgba(255,255,255,0.3);">
@@ -1621,7 +1754,7 @@
             <li>CME opportunity available (pending approval)</li>
           </ul>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="foodaura-clinician-form.html" target="_blank" class="btn btn-gold" style="justify-content: center; text-align: center;">
+            <a href="foodaura-clinician-form.html" class="btn btn-gold" style="justify-content: center; text-align: center;">
               Complete Clinician Form →
             </a>
             <a href="https://calendar.app.google/HiAexJPkoWv3T22Y8" target="_blank" class="btn btn-outline" style="justify-content: center; text-align: center; border-color: rgba(255,255,255,0.3);">
@@ -1684,7 +1817,7 @@
 
         <h3>Why Eastern North Carolina</h3>
         <p>
-          Pitt County and the surrounding Eastern NC region face some of the most persistent health disparities in the state. Cancer incidence and mortality rates in rural ENC outpace state and national averages. Access to specialist oncology care, supportive services, and nutrition guidance is severely limited. Transportation, insurance gaps, and social determinants of health compound these challenges daily.
+          Pitt County and the surrounding Eastern NC region face some of the most persistent health disparities in the state. Cancer mortality rates in rural Eastern North Carolina consistently outpace state averages — and the region carries a disproportionate share of NC's cancer burden overall. Access to specialist oncology care, supportive services, and nutrition guidance is severely limited. Transportation, insurance gaps, and social determinants of health compound these challenges daily.
         </p>
         <p>
           OnPurpose Integrative Care was built for this community — not as a charity, but as a sustainable, high-integrity ecosystem that believes excellent care and rural service are not in conflict.
@@ -1894,9 +2027,30 @@
 </footer>
 
 <script>
+  // ─── Hamburger menu ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileNavDrawer = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileNavDrawer.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close mobile menu on outside click
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !mobileNavDrawer.contains(e.target)) {
+      hamburger.classList.remove('open');
+      mobileNavDrawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }
+  });
+
+  // ─── Page navigation ───
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links button, .nav-links a').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-mobile button').forEach(b => b.classList.remove('active'));
     const page = document.getElementById('page-' + id);
     if (page) {
       page.classList.add('active');
@@ -1904,6 +2058,16 @@
     }
     const navBtn = document.getElementById('nav-' + id);
     if (navBtn) navBtn.classList.add('active');
+    const mnavBtn = document.getElementById('mnav-' + id);
+    if (mnavBtn) mnavBtn.classList.add('active');
+  }
+
+  // Mobile nav — navigate and close drawer
+  function mobileNav(id) {
+    showPage(id);
+    hamburger.classList.remove('open');
+    mobileNavDrawer.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
   }
 
   function scrollToSignup() {

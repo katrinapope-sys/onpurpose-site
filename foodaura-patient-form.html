@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodAura Beta — Patient & Caregiver Interest Form | OnPurpose Integrative Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1A3A6B;
+    --navy-dark: #0F2347;
+    --navy-mid: #2A4E89;
+    --teal: #18B8AD;
+    --teal-light: #D4F5F2;
+    --teal-dark: #0E8A82;
+    --gold: #F5B800;
+    --gold-light: #FFF3C4;
+    --gold-dark: #C99500;
+    --white: #FFFFFF;
+    --off-white: #F7F9FC;
+    --gray-100: #EEF1F6;
+    --gray-200: #D8DDE8;
+    --gray-700: #3D4A5C;
+    --text-dark: #12243A;
+    --text-body: #3D4A5C;
+    --text-muted: #6B7A90;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Nunito Sans', system-ui, sans-serif;
+    --shadow-sm: 0 2px 8px rgba(26,58,107,0.08);
+    --shadow-md: 0 6px 24px rgba(26,58,107,0.12);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --transition: 0.25s ease;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--text-body);
+    background: var(--off-white);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, #0D3D4F 100%);
+    padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(24,184,173,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 720px; margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; margin-bottom: 1.5rem;
+    transition: color var(--transition);
+  }
+
+  .back-link:hover { color: var(--teal); }
+
+  .form-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(24,184,173,0.15); border: 1px solid rgba(24,184,173,0.35);
+    color: var(--teal); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.35rem 0.85rem; border-radius: 100px;
+    margin-bottom: 1rem;
+  }
+
+  header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700; color: var(--white); line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  header h1 em { font-style: italic; color: var(--teal); }
+
+  header p {
+    font-size: 0.95rem; color: rgba(255,255,255,0.72); line-height: 1.7;
+    max-width: 560px;
+  }
+
+  .header-meta {
+    display: flex; gap: 1.5rem; margin-top: 1.25rem; flex-wrap: wrap;
+  }
+
+  .header-meta span {
+    font-size: 0.75rem; color: rgba(255,255,255,0.5);
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+
+  .header-meta span::before { content: '✦'; color: var(--teal); font-size: 0.55rem; }
+
+  /* ─── FORM CONTAINER ─── */
+  .form-wrap {
+    max-width: 720px; margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .form-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-section-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem; color: var(--navy); font-weight: 600;
+    margin-bottom: 0.35rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--teal-light);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+
+  .form-section-title span { font-size: 1.1rem; }
+
+  .form-section-sub {
+    font-size: 0.83rem; color: var(--text-muted);
+    margin-bottom: 1.5rem; margin-top: 0.4rem;
+  }
+
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-bottom: 1rem;
+  }
+
+  .form-group { margin-bottom: 1rem; }
+  .form-group:last-child { margin-bottom: 0; }
+
+  .form-group label {
+    display: block; font-size: 0.78rem; font-weight: 700;
+    color: var(--gray-700); margin-bottom: 0.4rem;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  .form-group label .required {
+    color: var(--teal-dark); margin-left: 2px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 0.8rem 1rem;
+    border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+    font-family: var(--font-body); font-size: 0.92rem; color: var(--text-dark);
+    background: var(--white); outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(24,184,173,0.12);
+  }
+
+  .form-group textarea { min-height: 110px; resize: vertical; line-height: 1.6; }
+
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7A90' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem; cursor: pointer;
+  }
+
+  /* Radio / Checkbox groups */
+  .radio-group, .checkbox-group {
+    display: flex; flex-direction: column; gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .radio-group.inline, .checkbox-group.inline {
+    flex-direction: row; flex-wrap: wrap; gap: 0.5rem;
+  }
+
+  .radio-option, .checkbox-option {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.65rem 1rem;
+    border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+    cursor: pointer; transition: all var(--transition);
+    font-size: 0.88rem; color: var(--text-body);
+    background: var(--white);
+  }
+
+  .radio-option:hover, .checkbox-option:hover {
+    border-color: var(--teal); background: var(--teal-light);
+  }
+
+  .radio-option input, .checkbox-option input {
+    width: 16px; height: 16px; cursor: pointer;
+    accent-color: var(--teal); flex-shrink: 0;
+    padding: 0; border: none; border-radius: 0;
+    box-shadow: none;
+  }
+
+  .radio-option input:focus, .checkbox-option input:focus {
+    box-shadow: none; border: none;
+  }
+
+  .radio-option.selected, .checkbox-option.selected {
+    border-color: var(--teal); background: var(--teal-light);
+    color: var(--navy);
+  }
+
+  /* Char counter */
+  .char-hint {
+    font-size: 0.72rem; color: var(--text-muted);
+    text-align: right; margin-top: 0.3rem;
+  }
+
+  /* Submit area */
+  .submit-area {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .privacy-note {
+    font-size: 0.78rem; color: var(--text-muted); line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding: 1rem; background: var(--off-white);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--teal);
+  }
+
+  .btn-submit {
+    width: 100%; padding: 1rem;
+    background: var(--teal); color: var(--white);
+    border: none; border-radius: var(--radius-sm);
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; transition: all var(--transition);
+  }
+
+  .btn-submit:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  .btn-submit:active { transform: translateY(0); }
+
+  .btn-submit:disabled {
+    background: var(--gray-200); color: var(--text-muted);
+    cursor: not-allowed; transform: none;
+  }
+
+  /* Progress indicator */
+  .progress-bar {
+    height: 3px; background: var(--gray-100);
+    border-radius: 100px; margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%; background: var(--teal);
+    border-radius: 100px;
+    transition: width 0.4s ease;
+  }
+
+  /* Success state */
+  .success-screen {
+    display: none;
+    text-align: center; padding: 3rem 2rem;
+  }
+
+  .success-screen.visible { display: block; }
+
+  .success-icon {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: var(--teal-light); color: var(--teal-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin: 0 auto 1.5rem;
+  }
+
+  .success-screen h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem; color: var(--navy); margin-bottom: 0.75rem;
+  }
+
+  .success-screen p {
+    color: var(--text-muted); line-height: 1.7; max-width: 480px; margin: 0 auto 1.5rem;
+  }
+
+  .success-next {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--navy); color: var(--white);
+    padding: 0.8rem 1.6rem; border-radius: var(--radius-sm);
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; text-decoration: none;
+    transition: background var(--transition);
+  }
+
+  .success-next:hover { background: var(--navy-mid); }
+
+  /* Footer */
+  .form-footer {
+    text-align: center; padding: 1.5rem;
+    font-size: 0.78rem; color: var(--text-muted);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .form-footer a { color: var(--teal-dark); text-decoration: none; }
+  .form-footer a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .form-card { padding: 1.5rem; }
+    .submit-area { padding: 1.5rem; }
+    .radio-group.inline { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="back-link">← Back to OnPurpose Integrative Care</a>
+    <div class="form-badge">🌿 FoodAura Beta Program</div>
+    <h1>Patient &amp; Caregiver<br><em>Interest Form</em></h1>
+    <p>Thank you for your interest in FoodAura. Your experience navigating cancer care is exactly what we need to build something that truly helps. This form takes about 5 minutes to complete.</p>
+    <div class="header-meta">
+      <span>Free to participate</span>
+      <span>No obligation</span>
+      <span>Responses go to our clinical team</span>
+    </div>
+  </div>
+</header>
+
+<div class="form-wrap">
+
+  <!-- Progress -->
+  <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
+
+  <form id="patientForm" action="https://formspree.io/f/xeeddvzq" method="POST" novalidate>
+
+    <!-- Hidden fields for email routing -->
+    <input type="hidden" name="_subject" value="FoodAura Beta — Patient/Caregiver Interest Form">
+    <input type="hidden" name="_replyto" value="">
+    <input type="hidden" name="form_type" value="Patient/Caregiver Beta Interest">
+
+    <!-- Section 1: Contact Info -->
+    <div class="form-card">
+      <div class="form-section-title"><span>👤</span> About You</div>
+      <div class="form-section-sub">Basic contact information so our team can follow up with you.</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name <span class="required">*</span></label>
+          <input type="text" name="first_name" placeholder="First name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name <span class="required">*</span></label>
+          <input type="text" name="last_name" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address <span class="required">*</span></label>
+          <input type="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="(xxx) xxx-xxxx">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Are you a… <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Patient — currently in treatment" required>
+            Patient — currently in treatment
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Patient — post-treatment / survivorship">
+            Patient — post-treatment / survivorship
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Caregiver for a cancer patient">
+            Caregiver for a cancer patient
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Both — patient and caregiver">
+            Both — patient and caregiver
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Interest & Participation -->
+    <div class="form-card">
+      <div class="form-section-title"><span>🎗️</span> Your Interest</div>
+      <div class="form-section-sub">Tell us a little about how you'd like to participate. No clinical information required.</div>
+
+      <div class="form-group">
+        <label>Are you a… <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Patient — currently in or post treatment" required>
+            Patient — currently in or post treatment
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Caregiver for a cancer patient">
+            Caregiver for a cancer patient
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="participant_type" value="Both — patient and caregiver">
+            Both — patient and caregiver
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>What interests you most about FoodAura? <span class="required">*</span></label>
+        <textarea name="interest_reason" placeholder="For example: I want better nutrition guidance, I want to support a loved one, I'm curious about the app…" maxlength="400" required></textarea>
+        <div class="char-hint">Max 400 characters</div>
+      </div>
+    </div>
+
+    <!-- Section 3: App Preferences -->
+    <div class="form-card">
+      <div class="form-section-title"><span>🥗</span> About Your Needs</div>
+      <div class="form-section-sub">Help us understand what would make FoodAura useful for you — no medical details needed.</div>
+
+      <div class="form-group">
+        <label>Do you currently use any app or tool to track what you eat?</label>
+        <div class="radio-group inline">
+          <label class="radio-option">
+            <input type="radio" name="tracks_food" value="Yes — regularly">
+            Yes, regularly
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tracks_food" value="Sometimes">
+            Sometimes
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tracks_food" value="No">
+            No
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>How comfortable are you using a smartphone app?</label>
+        <div class="radio-group inline">
+          <label class="radio-option">
+            <input type="radio" name="tech_comfort" value="Very comfortable">
+            Very comfortable
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech_comfort" value="Somewhat comfortable">
+            Somewhat comfortable
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="tech_comfort" value="Not comfortable">
+            Not comfortable
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>What would make a nutrition app actually useful to you?</label>
+        <textarea name="what_would_help" placeholder="What features or information would make you open it every day?" maxlength="400"></textarea>
+        <div class="char-hint">Max 400 characters</div>
+      </div>
+    </div>
+
+    <!-- Section 4: Participation -->
+    <div class="form-card">
+      <div class="form-section-title"><span>📅</span> Getting Involved</div>
+      <div class="form-section-sub">Tell us how you'd like to participate. There's no wrong answer.</div>
+
+      <div class="form-group">
+        <label>Would you be willing to participate in a 30-minute virtual interview with our team? <span class="required">*</span></label>
+        <div class="radio-group inline">
+          <label class="radio-option">
+            <input type="radio" name="interview_willing" value="Yes — I'm happy to do an interview" required>
+            Yes, absolutely
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="interview_willing" value="Maybe — depending on timing">
+            Maybe
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="interview_willing" value="No — I'd prefer just the app when it's ready">
+            No thanks
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>How did you hear about FoodAura?</label>
+        <select name="referral_source">
+          <option value="">Select one</option>
+          <option>OnPurpose Integrative Care website</option>
+          <option>A friend or family member</option>
+          <option>My doctor, nurse, or care team</option>
+          <option>Social media</option>
+          <option>Community organization</option>
+          <option>Cancer support group</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Anything else you'd like us to know?</label>
+        <textarea name="additional_notes" placeholder="Any other thoughts, questions, or things about your experience you want to share with our team…" maxlength="600"></textarea>
+        <div class="char-hint">Max 600 characters</div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-area">
+      <div class="privacy-note">
+        🔒 <strong>Your privacy matters.</strong> The information you share here is used only to support FoodAura's development and to follow up with you about the beta program. We do not sell, share, or distribute your personal information. You may opt out at any time by emailing <a href="mailto:info@onpurposecare.com" style="color:var(--teal-dark);">info@onpurposecare.com</a>.
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">
+        Submit My Interest Form →
+      </button>
+      <p style="font-size:0.75rem; color:var(--text-muted); text-align:center; margin-top:0.75rem;">
+        Our team will follow up within 2 business days. Subject line: <strong>FoodAura Beta</strong>
+      </p>
+    </div>
+
+  </form>
+
+  <!-- Success Screen -->
+  <div class="success-screen" id="successScreen">
+    <div class="form-card" style="text-align:center; padding:3rem;">
+      <div class="success-icon">✓</div>
+      <h2>Thank You!</h2>
+      <p>
+        Your interest form has been received. Our clinical team will review your response and reach out within <strong>2 business days</strong> with next steps for the FoodAura beta program.
+      </p>
+      <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:2rem;">
+        In the meantime, if you have any questions, email us at <a href="mailto:info@onpurposecare.com" style="color:var(--teal-dark);">info@onpurposecare.com</a> with the subject line <strong>"FoodAura Beta"</strong>.
+      </p>
+      <a href="index.html" class="success-next">← Return to OnPurpose Integrative Care</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="form-footer">
+  <p>© 2026 OnPurpose Mobile Lab Services, LLC · OnPurpose Integrative Care · Greenville, NC<br>
+  <a href="index.html">Back to main site</a> &nbsp;·&nbsp; <a href="mailto:info@onpurposecare.com">info@onpurposecare.com</a></p>
+</div>
+
+<script>
+  // Progress bar based on filled required fields
+  const requiredFields = document.querySelectorAll('[required]');
+  function updateProgress() {
+    let filled = 0;
+    requiredFields.forEach(f => {
+      if (f.type === 'radio') {
+        const group = document.querySelectorAll(`[name="${f.name}"]:checked`);
+        if (group.length > 0) filled++;
+      } else if (f.value.trim() !== '') {
+        filled++;
+      }
+    });
+    const uniqueRequired = new Set([...requiredFields].map(f => f.name)).size;
+    const pct = Math.min(Math.round((filled / uniqueRequired) * 100), 100);
+    document.getElementById('progress').style.width = pct + '%';
+  }
+
+  document.getElementById('patientForm').addEventListener('input', updateProgress);
+  document.getElementById('patientForm').addEventListener('change', updateProgress);
+
+  // Radio option selected state
+  document.querySelectorAll('.radio-option input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.querySelectorAll(`input[name="${radio.name}"]`).forEach(r => {
+        r.closest('.radio-option').classList.remove('selected');
+      });
+      radio.closest('.radio-option').classList.add('selected');
+    });
+  });
+
+  // Form submission
+  const form = document.getElementById('patientForm');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    // Build mailto fallback since no backend is set up yet
+    const data = new FormData(form);
+    let body = 'FoodAura Beta Program — Patient/Caregiver Interest Form\n';
+    body += '─'.repeat(50) + '\n\n';
+    for (let [key, value] of data.entries()) {
+      if (!key.startsWith('_')) {
+        body += `${key.replace(/_/g,' ').toUpperCase()}: ${value}\n\n`;
+      }
+    }
+
+    // Try Formspree first; if not configured, fall back to mailto
+    const action = form.getAttribute('action');
+    if (action && !action.includes('YOUR_FORMSPREE_ID')) {
+      try {
+        const res = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          showSuccess();
+          return;
+        }
+      } catch(err) {}
+    }
+
+    // Mailto fallback
+    const subject = encodeURIComponent('FoodAura Beta — Patient/Caregiver Interest Form');
+    const bodyEncoded = encodeURIComponent(body);
+    window.location.href = `mailto:info@onpurposecare.com?subject=${subject}&body=${bodyEncoded}`;
+    setTimeout(showSuccess, 1500);
+  });
+
+  function showSuccess() {
+    document.getElementById('patientForm').style.display = 'none';
+    document.getElementById('successScreen').classList.add('visible');
+    document.getElementById('progress').style.width = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

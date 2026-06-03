@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnPurpose Integrative Care | Born from experience. Built OnPurpose.</title>
+<meta name="description" content="OnPurpose Integrative Care — Whole-person oncology care for Eastern North Carolina. Born from experience. Built OnPurpose.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy:      #1A3A6B;
+    --navy-dark: #0F2347;
+    --navy-mid:  #2A4E89;
+    --teal:      #18B8AD;
+    --teal-dark: #0E8A82;
+    --teal-light:#D4F5F2;
+    --gold:      #F5B800;
+    --white:     #FFFFFF;
+    --gray-200:  #D8DDE8;
+    --text-muted:#6B7A90;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    background: #FFFFFF;
+    color: #1A3A6B;
+    overflow-x: hidden;
+  }
+
+  /* ── Background ─────────────────────────────── */
+  .bg {
+    position: fixed; inset: 0; z-index: 0;
+    background: #FFFFFF;
+  }
+
+  .bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 90% 10%, rgba(24,184,173,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 10% 90%, rgba(245,184,0,0.05) 0%, transparent 50%);
+  }
+
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(26,58,107,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26,58,107,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* ── Layout ─────────────────────────────────── */
+  .page {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  /* ── Logo ───────────────────────────────────── */
+  .logo {
+    width: 160px; height: 160px;
+    object-fit: contain;
+    margin-bottom: 1.75rem;
+    filter: drop-shadow(0 4px 24px rgba(24,184,173,0.2));
+  }
+
+  /* ── Brand name ─────────────────────────────── */
+  .brand-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-sub {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-bottom: 2rem;
+  }
+
+  /* ── Divider ────────────────────────────────── */
+  .divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    margin: 0 auto 2rem;
+    border-radius: 2px;
+  }
+
+  /* ── Mission ────────────────────────────────── */
+  .mission {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #3D4A5C;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .mission span { color: var(--teal-dark); }
+
+  /* ── Slogan ─────────────────────────────────── */
+  .slogan {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #C99500;
+    margin-bottom: 3rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(201,149,0,0.25);
+    border-radius: 100px;
+    background: rgba(245,184,0,0.05);
+  }
+
+  .slogan::before, .slogan::after {
+    content: '—';
+    color: rgba(201,149,0,0.3);
+    font-style: normal;
+    font-size: 0.8rem;
+  }
+
+  /* ── Location pill ──────────────────────────── */
+  .location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7A869A;
+    background: #F7F9FC;
+    border: 1px solid #D8DDE8;
+    padding: 0.45rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 3rem;
+  }
+
+  .location-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+
+  /* ── Contact ────────────────────────────────── */
+  .contact-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7A869A;
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-email {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--teal-dark);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .contact-email:hover { color: var(--teal); }
+
+  /* ── CTA Button ─────────────────────────────── */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--navy);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    transition: background 0.2s, transform 0.2s;
+    border: 2px solid var(--navy);
+  }
+
+  .cta-btn:hover {
+    background: var(--navy-mid);
+    border-color: var(--navy-mid);
+    transform: translateY(-2px);
+  }
+
+  .coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #D8DDE8;
+    margin-bottom: 3rem;
+  }
+
+  .cs-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #D8DDE8;
+  }
+
+  /* ── Footer ─────────────────────────────────── */
+  .footer {
+    font-size: 0.72rem;
+    color: #D8DDE8;
+    letter-spacing: 0.05em;
+    line-height: 1.7;
+  }
+
+  /* ── Responsive ──────────────────────────────── */
+  @media (max-width: 480px) {
+    .logo { width: 120px; height: 120px; }
+    .slogan { font-size: 0.88rem; padding: 0.65rem 1.1rem; }
+    .mission { font-size: 1rem; }
+    .contact-email { font-size: 0.92rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="bg-grid"></div>
+</div>
+
+<div class="page">
+
+  <!-- Logo -->
+  <img src="OPIC_Publication_Logo.png" alt="OnPurpose Integrative Care" class="logo">
+
+  <!-- Brand name -->
+  <h1 class="brand-name">OnPurpose Integrative Care</h1>
+  <div class="brand-sub">Greenville &amp; Eastern North Carolina</div>
+
+  <div class="divider"></div>
+
+  <!-- Mission -->
+  <p class="mission">
+    Operating at the intersection of <span>clinical excellence</span> and human dignity —
+    eliminating the systemic gaps that cause preventable suffering among oncology patients
+    navigating the post-acute continuum.
+  </p>
+
+  <!-- Slogan -->
+  <div class="slogan">Born from experience. Built OnPurpose.</div>
+
+  <!-- Location -->
+  <div class="location">
+    <span class="location-dot"></span>
+    Serving Pitt County &amp; Eastern NC · Launching 2026
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-section">
+    <div class="contact-label">Get in touch</div>
+    <a href="mailto:info@onpurposecare.com" class="contact-email">info@onpurposecare.com</a>
+  </div>
+
+  <!-- CTA -->
+  <a href="https://calendar.app.google/9hQYoVwAp9JVi9iK9" target="_blank" class="cta-btn">
+    📅 Schedule a Conversation
+  </a>
+
+  <!-- Coming soon -->
+  <div class="coming-soon">
+    <span class="cs-dot"></span>
+    Full site coming soon
+    <span class="cs-dot"></span>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2026 OnPurpose Mobile Lab Services, LLC · OnPurpose Integrative Care · All Rights Reserved
+  </div>
+
+</div>
+
+</body>
+</html>
